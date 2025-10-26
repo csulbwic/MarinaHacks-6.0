@@ -64,7 +64,7 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
         </div>
 
         <a
-          href="https://devpost.com"
+          href="https://marina-hacks-5-0.devpost.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 flex items-center justify-center px-6 py-3 md:px-10 md:py-4 bg-white/80 backdrop-blur-m rounded-full shadow-[0_0_25px_rgba(180, 220, 235, 0.35)] hover:shadow-[0_0_35px_rgba(251,172,204,0.5)] hover:scale-105 transition-all duration-300 ease-in-out"
