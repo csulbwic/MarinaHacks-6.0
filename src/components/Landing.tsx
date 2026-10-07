@@ -17,6 +17,7 @@ export default function Landing() {
       
 
       {/* Decorations (under logo/timer) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-screen">
       <Image
         src="/images/schooloffish6.0.svg"
         alt=""
@@ -26,8 +27,7 @@ export default function Landing() {
           absolute left-[4%] top-[10%]
           w-[380px] md:w-[520px]
           h-auto max-w-none
-          z-[1] pointer-events-none
-          rotate-[-8deg]
+          rotate-[-12deg]
         "
       />
 
@@ -37,13 +37,13 @@ export default function Landing() {
         width={700}
         height={400}
         className="
-          absolute right-[4%] bottom-[24%]
+          absolute right-[4%] bottom-[18%]
           w-[380px] md:w-[520px]
           h-auto max-w-none
-          z-[1] pointer-events-none
           rotate-[-8deg]
         "
       />
+    </div>
 
       {/* Logo + countdown (still above waves/decors, but below any navbar wrapper) */}
       <div className="z-[2] text-center grid place-items-center gap-0 translate-y-8 md:translate-y-14 lg:translate-y-18">
@@ -60,28 +60,7 @@ export default function Landing() {
 
         {/* Timer slightly above logo for overlap, but still low overall */}
         <div className="z-[3] flex flex-col items-center gap-6">
-          <a
-            href="APPLICATION_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              w-[240px] h-[51px] sm:w-[280px] sm:h-[59px]
-              flex items-center justify-center gap-3
-              rounded-[25px]
-              translate-y-2
-              bg-[#FFC1D8]
-              border-4 border-white
-              text-[32px] font-monomaniac text-white
-              shadow-[0_6px_15px_rgba(251,172,204,0.4)]
-              transition-transform duration-300
-              hover:scale-105
-            "
-          >
-            <span className="flex -translate-y-1 items-center gap-3 leading-none">
-              <span>Apply Now</span>
-              <span aria-hidden="true">→</span>
-            </span>
-          </a>
+          
 
           <CountdownTimer targetDate="2026-10-24T10:00:00" />
         </div>
