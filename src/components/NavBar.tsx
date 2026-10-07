@@ -55,8 +55,8 @@ export const NavBar = () => {
       <div className="hidden md:flex w-full h-full justify-between items-center">
         <Link href="/#home">
           <Image
-            src="/images/navlogo.png"
-            alt="MarinaHacks 5.0 Logo"
+            src="/images/marinahacks6.0.png"
+            alt="MarinaHacks 6.0 Logo"
             width={navLogoSize}
             height={navLogoSize}
             className="cursor-pointer"
