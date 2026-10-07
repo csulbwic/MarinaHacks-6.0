@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/contact.module.css";
+import Image from "next/image";
 
 interface CountdownTimerProps {
   targetDate: string;
@@ -57,8 +58,8 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   if (isCountdownOver) {
     return (
       <div className="justify-center mt-10 mb-10">
-        <div className="flex items-center justify-center px-10 md:px-16 py-6 md:h-[140px] bg-white/80 backdrop-blur-m rounded-full shadow-[0_0_25px_rgba(180, 220, 235, 0.6)]">
-          <p className="text-4xl md:text-5xl font-extrabold text-[#FBACCC] font-nunito text-center whitespace-nowrap">
+        <div className="flex items-center justify-center px-10 md:px-16 py-6 md:h-[140px] bg-[#FFC1D8] backdrop-blur-m rounded-[25px] shadow-[0_0_25px_rgba(180, 220, 235, 0.6)]">
+          <p className="text-4xl md:text-5xl font-monomaniac text-[#FFFFFF] font-nunito text-center whitespace-nowrap leading-none -translate-y-1">
             MarinaHacks Happens Now!
           </p>
         </div>
@@ -67,9 +68,9 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
           href="https://marina-hacks-5-0.devpost.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 flex items-center justify-center px-6 py-3 md:px-10 md:py-4 bg-white/80 backdrop-blur-m rounded-full shadow-[0_0_25px_rgba(180, 220, 235, 0.35)] hover:shadow-[0_0_35px_rgba(251,172,204,0.5)] hover:scale-105 transition-all duration-300 ease-in-out"
+          className="mt-10 flex items-center justify-center px-6 py-3 md:px-10 md:py-4 bg-[#FFC1D8] backdrop-blur-m rounded-[25px] border-4 border-white shadow-[0_0_25px_rgba(180, 220, 235, 0.35)] hover:shadow-[0_0_35px_rgba(251,172,204,0.5)] hover:scale-105 transition-all duration-300 ease-in-out"
         >
-          <p className="text-lg md:text-2xl font-extrabold text-[#FBACCC] font-nunito text-center whitespace-nowrap">
+          <p className="text-lg md:text-2xl font-monomaniac text-[#FFFFFF] font-nunito text-center whitespace-nowrap">
             DevPost
           </p>
         </a>
@@ -78,9 +79,9 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
           href="https://docs.google.com/document/d/1kP8YUct2d7iaGLmMwALtOXxFjrcB5Hv_jwIteBdNCIY/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 flex items-center justify-center px-6 py-3 md:px-10 md:py-4 bg-white/80 backdrop-blur-m rounded-full shadow-[0_0_25px_rgba(180, 220, 235, 0.35)] hover:shadow-[0_0_35px_rgba(251,172,204,0.5)] hover:scale-105 transition-all duration-300 ease-in-out"
+          className="mt-3 flex items-center justify-center px-6 py-3 md:px-10 md:py-4 bg-[#FFC1D8] backdrop-blur-m rounded-[25px] border-4 border-white shadow-[0_0_25px_rgba(180, 220, 235, 0.35)] hover:shadow-[0_0_35px_rgba(251,172,204,0.5)] hover:scale-105 transition-all duration-300 ease-in-out"
         >
-          <p className="text-lg md:text-2xl font-extrabold text-[#FBACCC] font-nunito text-center whitespace-nowrap">
+          <p className="text-lg md:text-2xl font-monomaniac text-[#FFFFFF] font-nunito text-center whitespace-nowrap">
             Project Submission Requirements
           </p>
         </a>
@@ -92,15 +93,46 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     // Each time unit in its own box with pink border and white background
     // Styling repeats between boxes, thus using flexbox and grid for layout
 
-    <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-20 md:gap-24 lg:gap-28">
+  <div className="flex flex-col items-center gap-6">
+    <a
+            href="APPLICATION_LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              w-[240px] h-[51px] sm:w-[280px] sm:h-[59px]
+              flex items-center justify-center gap-3
+              rounded-[25px]
+              translate-y-2
+              bg-[#FFC1D8]
+              border-4 border-white
+              text-[32px] font-monomaniac text-white
+              shadow-[0_6px_15px_rgba(251,172,204,0.4)]
+              transition-transform duration-300
+              hover:scale-105
+            "
+          >
+            <span className="flex -translate-y-1 items-center gap-3 leading-none">
+              <span>Apply Now</span>
+              <span aria-hidden="true">→</span>
+            </span>
+          </a>
+
+    <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-4 md:gap-10 lg:gap-16">
       {/* Days */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} w-[110px] h-[110px] md:w-[130px] md:h-[130px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:0s]`}
         >
-          <div className="">
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.days}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Days</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Days</p>
           </div>
         </div>
       </div>
@@ -108,11 +140,18 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       {/* Hours */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} flex flex-col justify-center w-[110px] h-[110px] md:w-[130px] md:h-[130px] p-[10px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:0.4s]`}
         >
-          <div>
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.hours}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Hours</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Hours</p>
           </div>
         </div>
       </div>
@@ -120,11 +159,18 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       {/* Minutes */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} flex flex-col justify-center w-[110px] h-[110px] md:w-[130px] md:h-[130px] p-[10px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:0.8s]`}
         >
-          <div>
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.minutes}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Minutes</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Minutes</p>
           </div>
         </div>
       </div>
@@ -132,14 +178,22 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       {/* Seconds */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} flex flex-col justify-center w-[110px] h-[110px] md:w-[130px] md:h-[130px] p-[10px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:1.2s]`}
         >
-          <div>
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.seconds}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Seconds</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Seconds</p>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
