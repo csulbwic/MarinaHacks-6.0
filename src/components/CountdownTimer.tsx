@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/contact.module.css";
+import Image from "next/image";
 
 interface CountdownTimerProps {
   targetDate: string;
@@ -92,15 +93,22 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     // Each time unit in its own box with pink border and white background
     // Styling repeats between boxes, thus using flexbox and grid for layout
 
-    <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-20 md:gap-24 lg:gap-28">
+    <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-6 md:gap-14 lg:gap-20">
       {/* Days */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} w-[110px] h-[110px] md:w-[130px] md:h-[130px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:0s]`}
         >
-          <div className="">
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.days}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Days</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Days</p>
           </div>
         </div>
       </div>
@@ -108,11 +116,18 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       {/* Hours */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} flex flex-col justify-center w-[110px] h-[110px] md:w-[130px] md:h-[130px] p-[10px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:0.4s]`}
         >
-          <div>
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.hours}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Hours</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Hours</p>
           </div>
         </div>
       </div>
@@ -120,11 +135,18 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       {/* Minutes */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} flex flex-col justify-center w-[110px] h-[110px] md:w-[130px] md:h-[130px] p-[10px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:0.8s]`}
         >
-          <div>
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.minutes}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Minutes</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Minutes</p>
           </div>
         </div>
       </div>
@@ -132,11 +154,18 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
       {/* Seconds */}
       <div className="flex justify-center p-1">
         <div
-          className={`${style.bubble} flex flex-col justify-center w-[110px] h-[110px] md:w-[130px] md:h-[130px] p-[10px] bg-white text-foreground`}
+          className={`${style.bubble} relative w-[140px] h-[140px] md:w-[170px] md:h-[170px] [animation-delay:1.2s]`}
         >
-          <div>
+          <Image
+            src="/images/bubble6.0.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+
+          <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <p className="font-bold text-[1.5rem]">{timeLeft.seconds}</p>
-            <p className="text-[0.75rem] md:text-[1rem] self-center">Seconds</p>
+            <p className="text-[0.75rem] md:text-[1rem]">Seconds</p>
           </div>
         </div>
       </div>
