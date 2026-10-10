@@ -1,120 +1,206 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
 .faqContainer {
-    background-color: #DFF9FF;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 5%;
-    padding-bottom: 10%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 6rem;
+  background: #a2d2ff url("/images/faq-background.png") center / cover no-repeat;
+  font-family: "Poppins", sans-serif;
 }
 
-.fagWrapper{
-    max-width: 1280px;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    /* background: #D8D3FF; */
-    color: #5A4157;
-    padding: 3rem;
-    border-radius: 50px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    /* margin-left: auto;
-    margin-right: auto; */
+.faqContainer > :not(.starDecoration) {
+  position: relative;
+  z-index: 1;
 }
 
+.faqHeadingImage {
+  display: block;
+  width: min(100%, 1200px);
+  height: auto;
+  margin: 1rem auto 3rem;
+}
 
+.faqWrapper {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1280px);
+}
 
-.questionBox{
-    background: linear-gradient(to top, #DAD9F6 2%, #FBACCC 20% 70%);
-    /* color: #5A4157; */
-    border-radius: 20px;
-    margin-top: 0.3rem;
-    margin-bottom: 0.75rem;
-    padding-right: 7px;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.25); 
-    padding-bottom: 0%;
-    transition: all 0.2s ease-in-out;
+.faqList {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
 
+.questionBox {
+  overflow: hidden;
+  border: 8px solid #ffa2eb;
+  border-radius: 30px;
+  background: #ffcef4;
+  box-shadow:
+    0 0 0 10px rgba(255, 255, 255, 0.4),
+    0 8px 15px rgba(73, 83, 151, 0.14);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .questionBox:hover {
-    transform: scale(1.01);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 10px rgba(255, 255, 255, 0.48),
+    0 12px 20px rgba(73, 83, 151, 0.2);
 }
 
-.questionBoxActive{
-    background: linear-gradient(to top, #DAD9F6 0%, #FBACCC 20% 100%); /* bottom → top */
-    /* box-shadow: 0 6px 0 0 #F5B0C3; */
+.questionButton {
+  display: flex;
+  width: 100%;
+  min-height: 150px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 2.5rem;
+  border: 0;
+  background: transparent;
+  color: #a5629d;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
 }
 
-.answerBox{
-    /* background-color: lightcoral; */
-    margin: 0;  /* took off the margin because it gave extra space below the <button> making the image not align with the text*/
-    text-align: left;
-    padding-bottom: 10px; 
+.questionButton:focus-visible {
+  outline: 3px solid #5069bd;
+  outline-offset: -12px;
 }
 
-/* added this for the star image on the faqs to not be big --> the image led to the faq box expandng */
-.faqStar {
-    /* display: inline-block; */
-    width: 75px;     /* Adjust this number to make it smaller or larger */
-    height: 75px ; 
-    object-fit: contain; /* Prevent stretching */
-    /* padding-top: 1.25rem;
-    padding-right: 7px; */
-    
+.questionText {
+  font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.35;
 }
 
-
-@media (max-width: 1024px) {
-    /* Styles for screens smaller than 1200px */
-    .faqContainer{
-        padding-left: 5%;
-        padding-right: 5%;
-        padding-top: 5%;
-        padding-bottom: 5%;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .fagWrapper{
-        /* background: red; */
-        padding: 3rem 2rem;
-    }
-
+.faqArrow {
+  display: block;
+  flex: 0 0 auto;
+  width: 60px;
+  height: auto;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (max-width: 768px) {
-    /* Styles for screens smaller than 768px */
-    .questionBox{
-        /* background-color: lightgreen; */
-        padding: 2rem 1rem;
-        
-    }
-}
-    
-
-@media (max-width: 500px) {
-/* Styles for screens smaller than 992px */
-    .fagWrapper{
-        /* background: red; */
-        padding: 2rem 1.5rem;
-    }
-
-    .questionBox{
-        /* background-color: lightgreen; */
-        padding: 3rem 0.5rem;
-        
-    }
-
+.faqArrowOpen {
+  transform: rotate(180deg);
 }
 
+.answerBox {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  margin: 0 1.25rem;
+  opacity: 0;
+  transition:
+    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms ease,
+    margin 280ms ease;
+}
 
+.answerBoxOpen {
+  grid-template-rows: 1fr;
+  margin-bottom: 1.25rem;
+  opacity: 1;
+}
 
+.answerInner {
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  color: #a5629d;
+}
 
+.answerInner p {
+  margin: 0;
+  padding: 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.starDecoration {
+  position: absolute;
+  z-index: 0;
+  width: clamp(250px, 24vw, 380px);
+  aspect-ratio: 4 / 3;
+  background: url("/images/faqStar.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.starLeft {
+  top: 48%;
+  left: -85px;
+  transform: rotate(-60deg);
+}
+
+.starRight {
+  top: 29%;
+  right: -85px;
+  transform: rotate(-35deg);
+}
+
+@media (max-width: 600px) {
+  .faqContainer {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .faqHeadingImage {
+    margin: 1rem auto 2.5rem;
+  }
+
+  .questionBox {
+    border-width: 6px;
+    border-radius: 22px;
+  }
+
+  .questionButton {
+    min-height: 110px;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .faqArrow {
+    width: 40px;
+  }
+
+  .answerBox {
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+    border-radius: 18px;
+  }
+
+  .answerBoxOpen {
+    margin-bottom: 0.75rem;
+  }
+
+  .answerInner {
+    border-radius: 18px;
+  }
+
+  .answerInner p {
+    padding: 1rem;
+  }
+
+  .starDecoration {
+    width: clamp(160px, 40vw, 220px);
+  }
+
+  .starLeft {
+    left: -50px;
+  }
+
+  .starRight {
+    right: -50px;
+  }
+}
