@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type Pillar = { title: string; description: string; color: string};
 
@@ -33,9 +34,16 @@ export const Pillars = () => {
     >
       {/* Section title */}
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-6xl text-center font-extrabold text-[#FBACCC] mb-12 mt-2 font-nunito [text-shadow:0px_4px_4px_rgba(0,0,0,0.25)]">
-          Pillars
-        </h2>
+        {/* <h2 className="text-6xl text-center font-extrabold text-[#FBACCC] mb-12 mt-2 font-nunito [text-shadow:0px_4px_4px_rgba(0,0,0,0.25)]">
+          Test
+        </h2> */}
+        <Image 
+        src="/images/pillars/title6.0.png"
+        alt="Title"
+        width={250}
+        height={250}
+        className="mx-auto mb-20"
+        />
 
         {/* Stacked list */}
         <div className="flex flex-col items-center space-y-12">
