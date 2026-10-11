@@ -30,13 +30,10 @@ export const Pillars = () => {
   return (
     <section
       id="pillars"
-      className="bg-[#DFF9FF] pt-28 md:pt-36 pb-24 scroll-mt-28 md:scroll-mt-36"
+      className="bg-[url('/images/pillars/background6.0.png')] bg-no-repeat bg-cover bg-center pt-28 md:pt-36 pb-24 scroll-mt-28 md:scroll-mt-36"
     >
       {/* Section title */}
       <div className="mx-auto max-w-5xl px-6">
-        {/* <h2 className="text-6xl text-center font-extrabold text-[#FBACCC] mb-12 mt-2 font-nunito [text-shadow:0px_4px_4px_rgba(0,0,0,0.25)]">
-          Test
-        </h2> */}
         <Image 
         src="/images/pillars/title6.0.png"
         alt="Title"
