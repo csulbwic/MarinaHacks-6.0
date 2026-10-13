@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 type Pillar = { title: string; description: string; color: string};
@@ -27,6 +27,12 @@ const DATA: Pillar[] = [
 const HEADER = ["#F7D3F1", "#DAD9F6", "#EFC0D1", "#FBACCC"];
 
 export const Pillars = () => {
+  const [open, setOpen] = useState<boolean[]>(() => DATA.map(() => false));
+
+  const toggle = (index: number) => {
+    setOpen((prev) => prev.map((isOpen, i) => (i === index ? !isOpen : isOpen)));
+  };
+
   return (
     <section
       id="pillars"
@@ -58,10 +64,14 @@ export const Pillars = () => {
           {DATA.map((p, i) => (
             <div key={p.title} className="w-full flex flex-col items-center">
               {/* Ribbon (on top) */}
-              <div
+              <button
+                type="button"
+                aria-expanded={open[i]}
+                onClick={() => toggle(i)}
                 className="
                   relative z-10
                   w-[92%] md:w-[88%] lg:w-[84%]
+                  cursor-pointer border-0 p-0 font-[inherit]
                   rounded-2xl
                   shadow-[0_4px_4px_rgba(0,0,0,0.25)]
                   ring-1 ring-black/5
@@ -75,9 +85,10 @@ export const Pillars = () => {
                     {p.title}
                   </h3>
                 </div>
-              </div>
+              </button>
 
               {/* Card under the ribbon (slightly tucked underneath) */}
+              {open[i] && (
               <div
                 className="
                   relative z-0
@@ -92,6 +103,7 @@ export const Pillars = () => {
                   {p.description}
                 </p>
               </div>
+              )}
             </div>
           ))}
         </div>
