@@ -8,30 +8,31 @@ const DATA: Pillar[] = [
     title: "Hacker's Favorite", 
     description: "description"
   },
-  { 
-    title: "Best Overall", 
-    description: "Most memorable and favorite project!"
-  },
   {
     title: "Best Social Good",
     description:
-      "Focuses the best on addressing social issues such as climate change, renewable energy, waste reduction, and sustainable practices!"
+      "description"
   },
   {
     title: "Best Entertainment",
     description:
-      "Best entertainment product (music, gaming, art, food, culture, outdoor activities, physical activities, fashion, and beauty)!"
+      "description"
   },
- 
+  {
+    title: "Best UI/UX",
+    description:
+      "description"
+  },
   {
     title: "Best Technical",
     description:
-      "Best project for the most advanced, challenging, and difficulty in implementation!"
-  },
+      "description"
+  }
 ];
 
 // exact ribbon colors (in order)
-const HEADER = ["#F7D3F1", "#DAD9F6", "#EFC0D1", "#FBACCC"];
+const HEADER = ["#9B8AFF", "#8496FE", "#5875CD", "#EFC0D1", "#FBACCC"];
+const TEXT = ["#FFFFFF", "#636DB1", "#5A649C"]
 
 export const Pillars = () => {
   const [open, setOpen] = useState<boolean[]>(() => DATA.map(() => false));
@@ -84,7 +85,8 @@ export const Pillars = () => {
                   ring-1 ring-black/5
                   text-left
                 "
-                style={{ background: HEADER[i % HEADER.length]}}
+                style={{ background: HEADER[i % HEADER.length], 
+                color: TEXT[i % TEXT.length]}}
               >
                 <div className="py-2 pl-6">
                   {/* if you want white uppercase like the prototype, swap the color & add uppercase */}
