@@ -31,7 +31,7 @@ const DATA: Pillar[] = [
 ];
 
 // exact ribbon colors (in order)
-const HEADER = ["#9B8AFF", "#8496FE", "#5875CD", "#EFC0D1", "#FBACCC"];
+const HEADER = ["#9B8AFF", "#8496FE", "#5875CD"];
 const TEXT = ["#FFFFFF", "#636DB1", "#5A649C"]
 
 export const Pillars = () => {
@@ -44,7 +44,7 @@ export const Pillars = () => {
   return (
     <section
       id="pillars"
-      className="relative bg-[url('/images/pillars/background6.0.png')] bg-no-repeat bg-cover bg-center pt-28 md:pt-36 pb-24 scroll-mt-28 md:scroll-mt-36"
+      className="relative bg-[url('/images/pillars/background6.0.png')] bg-no-repeat bg-cover bg-center pt-10 pb-24 scroll-mt-28 md:scroll-mt-36"
     >
       {/* Content wrapper */}
       <div className="mx-auto max-w-5xl px-6">
@@ -63,7 +63,7 @@ export const Pillars = () => {
           alt=""
           width={180}
           height={120}
-          className="absolute top-[22%] -right-[29%] w-[170px] h-auto md:w-[170px] z-[1] pointer-events-none select-none"
+          className="absolute top-[15%] -right-[29%] w-[170px] h-auto z-[1] pointer-events-none select-none"
           />
         </div>
 
@@ -88,7 +88,7 @@ export const Pillars = () => {
                 style={{ background: HEADER[i % HEADER.length], 
                 color: TEXT[i % TEXT.length]}}
               >
-                <div className="py-2 pl-6">
+                <div className="py-2 pl-6 opacity-80">
                   {/* if you want white uppercase like the prototype, swap the color & add uppercase */}
                   <h3 className="tracking-[0.08em] text-[25px] sm:text-[30px] md:text-[40px] font-preahvihear">
                     {p.title}
