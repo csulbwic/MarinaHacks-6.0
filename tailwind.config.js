@@ -27,6 +27,7 @@ module.exports = {
       },
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
+        preahvihear: ['Preahvihear', 'sans-serif'],
       },
       animation: {
         float: "floatY 5.5s ease-in-out infinite",
