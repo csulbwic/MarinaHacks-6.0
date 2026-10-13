@@ -30,20 +30,31 @@ export const Pillars = () => {
   return (
     <section
       id="pillars"
-      className="bg-[url('/images/pillars/background6.0.png')] bg-no-repeat bg-cover bg-center pt-28 md:pt-36 pb-24 scroll-mt-28 md:scroll-mt-36"
+      className="relative bg-[url('/images/pillars/background6.0.png')] bg-no-repeat bg-cover bg-center pt-28 md:pt-36 pb-24 scroll-mt-28 md:scroll-mt-36"
     >
-      {/* Section title */}
+      {/* Content wrapper */}
       <div className="mx-auto max-w-5xl px-6">
-        <Image 
-        src="/images/pillars/title6.0.png"
-        alt="Title"
-        width={250}
-        height={250}
-        className="mx-auto mb-20"
-        />
+        {/* Title and fish triplet */}
+        <div className="relative mx-auto mb-20 w-fit">
+          <Image 
+          src="/images/pillars/title6.0.png"
+          alt="Title"
+          width={250}
+          height={250}
+          />
 
-        {/* Stacked list */}
-        <div className="flex flex-col items-center space-y-12">
+          {/* Fish triplet */}
+          <Image
+          src="/images/pillars/fish_triplet6.0.png"
+          alt=""
+          width={180}
+          height={120}
+          className="absolute top-[22%] -right-[29%] w-[170px] h-auto md:w-[170px] z-[1] pointer-events-none select-none"
+          />
+        </div>
+
+        {/* Pillars list */}
+        <div className="relative z-10 flex flex-col items-center space-y-12">
           {DATA.map((p, i) => (
             <div key={p.title} className="w-full flex flex-col items-center">
               {/* Ribbon (on top) */}
@@ -84,6 +95,23 @@ export const Pillars = () => {
             </div>
           ))}
         </div>
+
+        {/* Fish triplet and pufferfish */}
+        <Image
+        src="/images/pillars/fish_triplet6.0.png"
+        alt=""
+        width={180}
+        height={120}
+        className="absolute -bottom-[2%] left-[2%] w-[170px] h-auto md:w-[170px] z-[1] pointer-events-none select-none"
+        />
+        
+        <Image
+        src="/images/pillars/pufferfish6.0.png"
+        alt=""
+        width={180}
+        height={120}
+        className="absolute bottom-[2%] right-[1%] w-[200px] h-auto md:w-[300px] z-[1] pointer-events-none select-none"
+        />
       </div>
     </section>
   );
