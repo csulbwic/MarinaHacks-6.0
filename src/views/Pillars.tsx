@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-type Pillar = { title: string; description: string; color: string};
+type Pillar = { title: string; description: string};
 
 const DATA: Pillar[] = [
-  { title: "Best Overall", description: "Most memorable and favorite project!", color: "#df8ed1ff"},
+  { 
+    title: "Hacker's Favorite", 
+    description: "description"
+  },
+  { 
+    title: "Best Overall", 
+    description: "Most memorable and favorite project!"
+  },
   {
     title: "Best Social Good",
     description:
-      "Focuses the best on addressing social issues such as climate change, renewable energy, waste reduction, and sustainable practices!", color: "#a6a4e2ff"
+      "Focuses the best on addressing social issues such as climate change, renewable energy, waste reduction, and sustainable practices!"
   },
   {
     title: "Best Entertainment",
     description:
-      "Best entertainment product (music, gaming, art, food, culture, outdoor activities, physical activities, fashion, and beauty)!", color: "#eb89adff"
+      "Best entertainment product (music, gaming, art, food, culture, outdoor activities, physical activities, fashion, and beauty)!"
   },
  
   {
     title: "Best Technical",
     description:
-      "Best project for the most advanced, challenging, and difficulty in implementation!", color: "#fd85b5ff "
+      "Best project for the most advanced, challenging, and difficulty in implementation!"
   },
 ];
 
@@ -75,13 +82,13 @@ export const Pillars = () => {
                   rounded-2xl
                   shadow-[0_4px_4px_rgba(0,0,0,0.25)]
                   ring-1 ring-black/5
-                  text-center
+                  text-left
                 "
-                style={{ background: HEADER[i % HEADER.length] }}
+                style={{ background: HEADER[i % HEADER.length]}}
               >
-                <div className="py-5">
+                <div className="py-2 pl-6">
                   {/* if you want white uppercase like the prototype, swap the color & add uppercase */}
-                  <h3 className="text-white uppercase tracking-[0.08em] text-[18px] sm:text-[20px] md:text-[22px] font-extrabold">
+                  <h3 className="tracking-[0.08em] text-[25px] sm:text-[30px] md:text-[40px] font-preahvihear">
                     {p.title}
                   </h3>
                 </div>
@@ -99,7 +106,7 @@ export const Pillars = () => {
                   px-8 py-8
                 "
               >
-                <p className="text-center font-bold text-[17px] leading-7" style={{color:p.color}}>
+                <p className="text-left text-[25px] leading-7 font-preahvihear">
                   {p.description}
                 </p>
               </div>
