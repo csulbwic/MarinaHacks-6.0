@@ -17,9 +17,9 @@ export const NavBar = () => {
   const navButtons = [
     { label: "Home", href: "/#home" },
     { label: "About", href: "/#about" },
-    { label: "Pillars", href: "/#pillars" },
-    { label: "Prizes", href: "/#prizes" },
-    { label: "Teams", href: "/#teams" },
+    // { label: "Pillars", href: "/#pillars" },
+    // { label: "Prizes", href: "/#prizes" },
+    { label: "Team", href: "/#teams" },
     { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/#contacts" },
   ];
@@ -53,7 +53,7 @@ export const NavBar = () => {
     <div className="w-full h-auto fixed top-0 z-10">
       {/* full size navbar */}
       <div className="hidden md:flex w-full h-full justify-between items-center">
-        <Link href="/#home">
+        {/* <Link href="/#home">
           <Image
             src="/images/navlogo.png"
             alt="MarinaHacks 5.0 Logo"
@@ -61,7 +61,7 @@ export const NavBar = () => {
             height={navLogoSize}
             className="cursor-pointer"
           />
-        </Link>
+        </Link> */}
 
         {/* adjust height of navbar on this parent div. you can change it to see how it affects the size of the buttons, etc. to fine tune it if you want */}
         <div className="flex-1 px-5 h-[60px]">
