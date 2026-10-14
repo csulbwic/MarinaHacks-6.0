@@ -1,23 +1,10 @@
-//import Image from 'next/image';
-
-
+// MarinaHacks 6.0 prizes.
+// To fill in a prize later, change its name and set PrizeImg to an image path
+// (for example "/images/prizeImg/myPrize.png"). An empty PrizeImg leaves the slot blank.
 
 export const Prize = [
-    {
-        name : "BEST OVERALL  | Keyboard & Mouse + Sony Headphones",
-        PrizeImg : "/images/prizeImg/overall_Keyboard_Mouse_Headphones_pink.png",
-        
-    },
-    {
-        name : "BEST ENTERTAINMENT | Amazon Echo Dot",
-        PrizeImg : "/images/prizeImg/entertainment_Echodot.png"
-    },
-    {
-        name : "BEST TECHNICAL | Arduino Kits",
-        PrizeImg : "/images/prizeImg/technical_Rasberrypikit.png"
-    },
-    {
-        name : "BEST SOCIAL GOOD | Amazon Gift card $50",
-        PrizeImg : "/images/prizeImg/socialgood_Amazongiftcard50.png"
-    }
-]
+  { name: "BEST OVERALL", PrizeImg: "" },
+  { name: "BEST TECHNICAL", PrizeImg: "" },
+  { name: "BEST SOCIAL GOOD", PrizeImg: "" },
+  { name: "BEST ENTERTAINMENT", PrizeImg: "" },
+];
