@@ -52,7 +52,7 @@ export const NavBar = () => {
   return (
     <div className="w-full h-auto fixed top-0 z-10">
       {/* full size navbar */}
-      <div className="hidden md:flex w-full h-full justify-between items-center">
+      <div className="hidden md:flex w-[90%] h-full justify-between items-center mx-auto">
         {/* <Link href="/#home">
           <Image
             src="/images/navlogo.png"
@@ -64,8 +64,13 @@ export const NavBar = () => {
         </Link> */}
 
         {/* adjust height of navbar on this parent div. you can change it to see how it affects the size of the buttons, etc. to fine tune it if you want */}
-        <div className="flex-1 px-5 h-[60px]">
-          <nav className="font-bold shadow-md bg-gradient-to-r from-navtransition1 via-navtransition2 to-navtransition3 rounded-full p-2 justify-center items-center flex h-full">
+        <div className="flex-1 px-5 h-[60px] mt-2">
+          <div className="relative h-full">
+            <div
+              aria-hidden
+              className="absolute inset-0 translate-x-[6px] translate-y-[8px] rounded-full bg-white shadow-md"
+            />
+            <nav className="relative z-10 font-bold shadow-md bg-gradient-to-r from-navtransition1 via-navtransition3 to-navtransition1 rounded-full p-2 justify-center items-center flex h-full">
             <ul className="flex items-center justify-between gap-6 w-full h-full">
               {navButtons.map((button, index) => (
                 <li
@@ -73,15 +78,16 @@ export const NavBar = () => {
                   className="rounded-full flex-1 text-navtext h-full select-none shadow-md"
                 >
                   <Link
-                    className="text-sm md:text-md lg:text-xl bg-navbtn w-full rounded-full h-full flex justify-center items-center font-nunito [text-shadow:0px_3px_4px_rgba(0,0,0,0.25)] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-pink-400 hover:shadow-lg hover:text-white"
+                    className="text-sm md:text-lg lg:text-2xl bg-navbtn w-full rounded-full h-full flex justify-center items-center font-bagel [text-shadow:0px_3px_4px_rgba(0,0,0,0.25)] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-pink-300 hover:shadow-lg hover:text-white"
                     href={button.href}
                   >
-                    {button.label}
+                    <span className="inline-block -translate-y-[3px]">{button.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+            </nav>
+          </div>
         </div>
       </div>
 
@@ -126,7 +132,7 @@ export const NavBar = () => {
           </ul>
         </div>
 
-        <div className="flex-none">
+        {/* <div className="flex-none">
           <Link href="/#home">
             <Image
               src="/images/navlogo.png"
@@ -136,7 +142,7 @@ export const NavBar = () => {
               className="cursor-pointer"
             />
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
