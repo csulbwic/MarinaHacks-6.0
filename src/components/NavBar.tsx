@@ -98,19 +98,24 @@ export const NavBar = () => {
           style={{
             height: `${hamburgerHeight}px`,
             width: `${hamburgerWidth}px`,
-            borderRadius: showMenu ? "25px" : "100%",
+            borderRadius: showMenu ? "25px" : "0px",
+            backgroundImage: showMenu ? "none" : "url(/images/menu_starfish.png)",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
-          className="shadow-md relative ml-[10px] mt-[10px] px-5 bg-gradient-to-b from-navtransition1 via-navtransition2 to-navtransition3 transition-all duration-300 ease-in-out overflow-hidden flex flex-col"
+          className={`relative ml-[10px] mt-[10px] px-5 transition-all duration-[300ms] delay-[50ms] ease-in-out overflow-hidden flex flex-col ${showMenu ? "bg-[#FFE1ED] shadow-md" : "drop-shadow-md"}`}
         >
           <button
+            aria-label={showMenu ? "Close menu" : "Open menu"}
             style={{
               opacity: showMenu ? 0 : 1,
               pointerEvents: showMenu ? "none" : "auto",
             }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center w-[50px] h-[50px] z-10 transition-all duration-[150ms] delay-[0ms] ease-in-out"
+            className="absolute top-1/2 left-1/2 -translate-x-[calc(50%+1px)] -translate-y-[calc(50%+4px)] flex justify-center items-center w-[50px] h-[50px] z-10 transition-all duration-[300ms] delay-[50ms] ease-in-out"
             onClick={openHamburger}
           >
-            <GiHamburgerMenu size={30} color="#FBACCC" />
+            <GiHamburgerMenu size={30} color="#F9F8D2" />
           </button>
 
           <ul className="flex flex-col justify-around flex-1">
@@ -118,11 +123,11 @@ export const NavBar = () => {
               <li
                 key={index}
                 style={{ opacity: showMenu ? 1 : 0 }}
-                className="rounded-full transition-all duration-[200ms] ease-in-out delay-[50ms] font-bold text-navtext select-none flex-none shadow-md"
+                className="rounded-full transition-all duration-[300ms] ease-in-out delay-[50ms] font-bold text-navtext select-none flex-none"
               >
                 <Link
                   onClick={resetHamburger}
-                  className="rounded-full bg-navbtn w-full flex justify-center items-center text-lg font-nunito [text-shadow:0px_3px_4px_rgba(0,0,0,0.25)]"
+                  className="rounded-full bg-[#FFF1F8] w-full flex justify-center items-center text-lg font-bagel text-[#FDA0CA] shadow-[inset_0_2px_4px_rgba(214,150,180,0.45)]" 
                   href={button.href}
                 >
                   {button.label}
