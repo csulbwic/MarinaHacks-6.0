@@ -1,0 +1,194 @@
+/* ===== MarinaHacks 6.0 Contact section =====
+   (contact.module.css is left as-is because the countdown timer still uses it) */
+
+/* Whole section: wavy blue background */
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(28px, 4vw, 56px) 16px clamp(40px, 5vw, 72px);
+  background-image: url("/images/ContactsAssets/ContactsBackground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: var(--font-contact-nunito), "Nunito", sans-serif;
+}
+
+.inner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+/* ----- Title ----- */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  width: clamp(220px, 28vw, 360px);
+}
+
+.titleImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 4px rgba(60, 40, 120, 0.3));
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(13px, 1.2vw, 16px);
+  text-shadow: 0 2px 4px rgba(40, 60, 140, 0.25);
+}
+
+/* ----- Logo on the left, contact info on the right ----- */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(16px, 4vw, 64px);
+  margin-top: clamp(8px, 2vw, 24px);
+}
+
+.logoCol {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: clamp(280px, 38vw, 480px);
+  height: auto;
+  /* shadow that follows the logo's shape */
+  filter: drop-shadow(0 12px 10px rgba(30, 50, 130, 0.35));
+  /* gentle float up and down with a slight tilt */
+  animation: logoFloat 5s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1.5deg);
+  }
+}
+
+.contactCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+/* WiC logo with the three buttons scattered around it, like the mockup */
+.cluster {
+  position: relative;
+  width: clamp(190px, 20vw, 260px);
+  aspect-ratio: 92 / 100;
+}
+
+/* The WiC file has lots of empty space; this box is just the letters */
+.wic {
+  position: absolute;
+  left: 9%;
+  top: 39.6%;
+  width: 38%;
+  aspect-ratio: 175 / 94;
+  overflow: hidden;
+}
+
+.wicImg {
+  position: absolute;
+  top: 0;
+  width: 132.6%;
+  max-width: none; /* the site's base styles cap images at 100% wide */
+  height: auto;
+  left: -13.7%;
+  margin-top: -45.7%;
+}
+
+/* Each button is exactly the pink circle */
+.icon {
+  position: absolute;
+  width: 32.6%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  filter: drop-shadow(0 5px 6px rgba(40, 60, 140, 0.25));
+  transition: transform 200ms ease;
+}
+
+.icon:hover,
+.icon:focus-visible {
+  transform: scale(1.08);
+}
+
+.icon:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.iconImg {
+  position: absolute;
+  height: auto;
+  max-width: none;
+}
+
+.instagram {
+  left: 23.9%;
+  top: 0;
+}
+
+.linkedin {
+  left: 67.4%;
+  top: 36%;
+}
+
+.email {
+  left: 0;
+  top: 70%;
+}
+
+/* ----- Email note, bottom right ----- */
+.note {
+  margin: 0;
+  max-width: 380px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(40, 60, 140, 0.2);
+}
+
+.noteLink {
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.noteLink:hover,
+.noteLink:focus-visible {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: none;
+  }
+
+  .logo {
+    animation: none;
+  }
+}
+
+/* ----- Tablet and phone layouts -----
+   Not built yet: these are being handled separately.
+   Add @media (max-width: ...) rules here for smaller screens. */
