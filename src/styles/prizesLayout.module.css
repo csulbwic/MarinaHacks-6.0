@@ -42,8 +42,8 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-  /* soft shadow that follows the letter shapes */
-  filter: drop-shadow(0 5px 4px rgba(60, 40, 120, 0.42));
+  /* slightly richer, brighter colors, plus a soft shadow that follows the letter shapes */
+  filter: saturate(1.25) brightness(1.08) drop-shadow(0 5px 4px rgba(60, 40, 120, 0.42));
 }
 
 /* Each side holds both corals overlapped */
@@ -160,8 +160,13 @@
   background: #698fe2;
   border: 4px solid #5776ca;
   border-radius: 18px;
-  outline: 8px solid #e2e9fc;
-  box-shadow: 0 0 24px 10px rgba(226, 233, 252, 0.6);
+  /* white border: solid next to the panel, fading out toward its outer edge */
+  box-shadow:
+    0 0 0 3px #e2e9fc,
+    0 0 6px 5px rgba(226, 233, 252, 0.7),
+    0 0 16px 10px rgba(226, 233, 252, 0.45),
+    0 0 36px 18px rgba(226, 233, 252, 0.3),
+    0 0 60px 26px rgba(240, 244, 255, 0.18);
   padding: clamp(20px, 3vw, 36px) clamp(12px, 2.5vw, 32px);
   margin: 8px;
 }
@@ -195,6 +200,12 @@
   filter: drop-shadow(0 10px 6px rgba(25, 30, 90, 0.6));
 }
 
+/* The rock in "Bottom coral.png" is drawn about 5% left of the image's
+   center (the top one is centered), so nudge it right to line them up */
+.rockBottom {
+  transform: translateX(5%);
+}
+
 /* Space between the two rock pieces where the prize image goes */
 .prizeImage {
   position: relative;
@@ -206,18 +217,90 @@
   z-index: 1;
 }
 
+/* lines up one or more prize images in the gap */
+.prizeImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+}
+
+/* a category with two prizes gets a wider gap area so both stay a good size */
+.prizeImageMulti {
+  width: 92%;
+  max-width: 210px;
+  /* wider but the same height as a single prize, so every slot lines up */
+  aspect-ratio: 7 / 4;
+}
+
+.prizeImgBox {
+  position: relative;
+  flex: 1 1 0;
+  height: 100%;
+}
+
 .prizeImg {
   object-fit: contain;
+  /* soft shadow so the prize stands out from the rocks */
+  filter: drop-shadow(0 6px 5px rgba(25, 30, 90, 0.45));
+}
+
+/* ----- Two prizes in one slot: overlap them diagonally -----
+   1st prize (earbuds) sits up and to the left, 2nd (keyboard) down and to the
+   right, with the 2nd's top-left corner layered over the 1st's bottom-right. */
+.prizeImageMulti {
+  gap: 0;
+  /* shrink the pair a little and nudge it left/up so it's centered between the
+     rocks without touching their icicles (doesn't change the slot's layout) */
+  scale: 0.82;
+  translate: -8% -5%;
+}
+
+.prizeImageMulti .prizeImgBox {
+  /* each image takes up part of the height, so they can be staggered */
+  height: 64%;
+}
+
+.prizeImageMulti .prizeImgBox:nth-child(1) {
+  align-self: flex-start;
+  z-index: 1;
+}
+
+.prizeImageMulti .prizeImgBox:nth-child(2) {
+  align-self: flex-end;
+  /* slide left so the keyboard's top-left corner sits over the earbuds' bottom-right */
+  margin-left: -24%;
+  z-index: 2;
+}
+
+/* pin each picture into the corner that touches the other one */
+.prizeImageMulti .prizeImgBox:nth-child(1) .prizeImg {
+  object-position: right bottom;
+}
+
+.prizeImageMulti .prizeImgBox:nth-child(2) .prizeImg {
+  object-position: left top;
 }
 
 .name {
   margin: 10px 0 0;
   text-align: center;
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
+  font-family: var(--font-prize-nunito), "Nunito", sans-serif;
+  font-weight: 700;
   font-size: clamp(14px, 1.6vw, 18px);
   line-height: 1.2;
   color: #2f3c8f;
+}
+
+/* the prize itself, under the category name */
+.item {
+  margin: 4px 0 0;
+  text-align: center;
+  font-family: var(--font-prize-nunito), "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, 1.3vw, 15px);
+  line-height: 1.25;
+  color: #f3f6ff;
 }
 
 /* ----- Tablet and phone layouts -----

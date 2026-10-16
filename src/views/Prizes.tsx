@@ -1,8 +1,22 @@
 import Image from "next/image";
+import { Nunito } from "next/font/google";
 import { Prize } from "@/Data/prize";
 import styles from "@/styles/prizesLayout.module.css";
 // Imported directly so Next.js knows its real pixel size
 import prizesHeader from "../../public/images/PrizesAssets/PrizesHeader.png";
+
+// Nunito (bold for categories, semi bold for prize names), loaded just for this section
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+  variable: "--font-prize-nunito",
+});
+
+// PrizeImg can be one path or a list of paths; always work with a list
+function toList(img: string | string[]) {
+  return (Array.isArray(img) ? img : [img]).filter(Boolean);
+}
 
 // All art for this section lives in public/images/PrizesAssets
 const ASSETS = "/images/PrizesAssets";
@@ -36,7 +50,7 @@ export const Prizes = () => {
   const prizes = Prize.slice(0, 4);
 
   return (
-    <section id="prizes" className={styles.section}>
+    <section id="prizes" className={`${styles.section} ${nunito.variable}`}>
       <div className={styles.inner}>
         {/* Title with a coral on each side */}
         <div className={styles.header}>
@@ -72,17 +86,24 @@ export const Prizes = () => {
                     className={styles.rock}
                   />
 
-                  {/* Space for the prize image; stays empty until PrizeImg is set */}
-                  <div className={styles.prizeImage}>
-                    {prize.PrizeImg && (
-                      <Image
-                        src={prize.PrizeImg}
-                        alt={prize.name}
-                        fill
-                        sizes="(max-width: 480px) 60vw, (max-width: 900px) 35vw, 200px"
-                        className={styles.prizeImg}
-                      />
-                    )}
+                  {/* The prize (or prizes) sit between the rocks and float with them */}
+                  <div
+                    className={`${styles.prizeImage} ${
+                      toList(prize.PrizeImg).length > 1 ? styles.prizeImageMulti : ""
+                    }`}
+                    style={prize.imgOffsetY ? { transform: `translateY(${prize.imgOffsetY})` } : undefined}
+                  >
+                    {toList(prize.PrizeImg).map((src, j, all) => (
+                      <div key={src} className={styles.prizeImgBox}>
+                        <Image
+                          src={src}
+                          alt={all.length > 1 ? `${prize.name} prize ${j + 1}` : `${prize.name} prize`}
+                          fill
+                          sizes="200px"
+                          className={styles.prizeImg}
+                        />
+                      </div>
+                    ))}
                   </div>
 
                   <Image
@@ -96,6 +117,7 @@ export const Prizes = () => {
                 </div>
 
                 <p className={styles.name}>{prize.name}</p>
+                {prize.item && <p className={styles.item}>{prize.item}</p>}
               </li>
             ))}
           </ul>
