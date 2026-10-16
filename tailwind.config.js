@@ -27,6 +27,7 @@ module.exports = {
       },
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
+        "black-white": ['"Black And White Picture"', "cursive"],
       },
       animation: {
         float: "floatY 5.5s ease-in-out infinite",

@@ -8,25 +8,35 @@
     padding: 8% 10%;
     min-height: 100vh;
     text-align: center;
+
+    background-image: url("/images/aboutbackground6.0.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .infoBox {
-    background: linear-gradient(180deg, #FCE4D8 0%, #DAD9F6 100%);
+    background: #F9EEFF;
+    border-color: #CDB4DB;
+    border-width: 8px;
     border-radius: 24px;
-    padding: 0rem 2rem;
-    max-width: 900px;
+    padding: 0rem 1.5rem;
+    max-width: 760px;
     font-size: 1.3rem;
     font-weight: 600;
     line-height: 2;
     color: #565656;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 5px 30px rgba(255, 255, 255, 0.47);
 }
 
 .infoBox p {
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    font-weight: 600;
-    line-height: 2;
-    color: #565656;
+    padding: 1rem;
+    font-family: "Preahvihear", sans-serif !important;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #680F33;
 }
 
 .starfish {
