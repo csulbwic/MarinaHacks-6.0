@@ -5,20 +5,90 @@ import Image from 'next/image';
 export const Info = () => {
   return (
     <div id="about" className={`${styles.infoContainer} text-center flex flex-col items-center`}>
-      {/*Starfish decoration*/}
+      {/*Pufferfish decoration*/}
       <Image
-        src="/images/star_fish_1.svg"
-        alt="Starfish"
+        src="/images/pufferfish6.0.svg"
+        alt="pufferfish"
         width={150}
         height={150}
-        className={`${styles.starfish} ${styles.leftStar} sway-more-rev sway-origin-bottom [animation-delay:600ms]`}
+        className={`${styles.pufferfish} sway-more-rev sway-origin-bottom [animation-delay:600ms]`}
       />
       <Image
-        src="/images/star_fish_2.svg"
-        alt="Starfish"
+        src="/images/arrowfish6.0.svg"
+        alt="Arrowfish"
         width={90}
         height={90}
+        className={`${styles.arrowfish} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/arrowfish6.0.svg"
+        alt="Arrowfish"
+        width={90}
+        height={90}
+        className={`${styles.arrowfishTop} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/starfish6.0.svg"
+        alt="Starfish"
+        width={200}
+        height={200}
+        className={`${styles.starfish} ${styles.leftStar} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/starfish6.0.svg"
+        alt="Starfish"
+        width={200}
+        height={200}
         className={`${styles.starfish} ${styles.rightStar} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble1} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble2} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble3} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble4} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble5} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble6} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
+      />
+      <Image
+        src="/images/whitebubble6.0.svg"
+        alt="WhiteBubble"
+        width={90}
+        height={90}
+        className={`${styles.whitebubble7} sway-more-rev sway-origin-bottom [animation-delay:500ms]`}
       />
 
       <h1 className="
