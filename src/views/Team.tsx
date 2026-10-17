@@ -18,7 +18,7 @@ export const Team = () => {
         
         {/* DIRECTORS - BACKGROUND */}
         <section id="directors"
-        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px]
+        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px] mb-32
         bg-[url('/images/teams_graphics/directors_graphics2.svg')]
         bg-no-repeat bg-contain bg-center">
             
@@ -45,19 +45,13 @@ export const Team = () => {
         
         {/* DESIGN - BACKGROUND */}
         <section id="design"
-        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px]
+        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px] mb-32
         bg-[url('/images/teams_graphics/designteam_graphics.svg')]
         bg-no-repeat bg-contain bg-center">
             
             {/* TITLE */}
             <div>
-              <Image
-                src="/images/teams_graphics/designteam_title.svg"    
-                alt="Design"
-                width={500}
-                height={250}
-                className=""
-            />
+                <h2 className={styles.teamTitle}>Design Committee</h2>
             </div>
 
             <div className={styles.memberGrid}
@@ -79,19 +73,13 @@ export const Team = () => {
 
         {/* WEBSITE - BACKGROUND */}
         <section id="website"
-        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px]
+        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px] mb-32
         bg-[url('/images/teams_graphics/websiteteam_graphics.svg')]
         bg-no-repeat bg-contain bg-center">
             
             {/* TITLE */}
             <div>
-              <Image
-                src="/images/teams_graphics/websiteteam_title.svg"    
-                alt="Website"
-                width={500}
-                height={250}
-                className="mt-20"
-            />
+                <h2 className={styles.teamTitle}>Website Committee</h2>
             </div>
 
             <div className={styles.memberGrid}
@@ -113,19 +101,13 @@ export const Team = () => {
 
         {/* SPONSORSHIP - BACKGROUND */}
         <section id="sponsorship"
-        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px]
+        className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px] mb-32
         bg-[url('/images/teams_graphics/sponsorship_graphics.svg')]
         bg-no-repeat bg-contain bg-center">
             
             {/* TITLE */}
             <div>
-              <Image
-                src="/images/teams_graphics/sponsorship_title.svg"    
-                alt="Sponsorship"
-                width={700}
-                height={250}
-                className="mt-20"
-            />
+                <h2 className={styles.teamTitle}>Sponorship Committee</h2>
             </div>
 
             <div className={styles.memberGrid}>
@@ -152,13 +134,7 @@ export const Team = () => {
             
             {/* TITLE */}
             <div>
-              <Image
-                src="/images/teams_graphics/wicofficers_title.svg"    
-                alt="WICOfficers"
-                width={800}
-                height={250}
-                className="mt-20"
-            />
+                <h2 className={styles.teamTitle}>Women in Computing Officers</h2>
             </div>
 
             <div className={styles.memberGrid}
