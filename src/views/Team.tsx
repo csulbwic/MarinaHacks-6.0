@@ -14,7 +14,7 @@ GROUP 5: Sponsorship Committee
 export const Team = () => {
     return (
       <div id ="teams" className={styles.teamContainer}>
-        <h1 className={`${styles.teamHeading} text-5xl mb-10`}>Meet the Team</h1>
+        <h1 className={`${styles.teamHeading} text-5xl mb-10`}>Meet the Team!</h1>
         
         {/* DIRECTORS - BACKGROUND */}
         <section id="directors"
