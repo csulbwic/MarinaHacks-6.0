@@ -20,8 +20,23 @@
   text-align: center;
   font-weight: 100;
   font-size: 7.5rem;
+  line-height: 1;
 }
 
+
+.teamTitle {
+  background: linear-gradient(to bottom, #FCF9FB 10%, #FFA2EB 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'Black And White Picture', sans-serif;
+  filter: drop-shadow(0px 4px 1px rgba(96, 7, 119, 0.25));
+  text-align: center;
+  font-weight: 100;
+  font-size: 7.5rem;
+  line-height: 1;
+}
 
 .teamSubHeading {
   color: #FAFEF7;

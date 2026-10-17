@@ -14,7 +14,7 @@ GROUP 5: Sponsorship Committee
 export const Team = () => {
     return (
       <div id ="teams" className={styles.teamContainer}>
-        <h1 className={`${styles.teamHeading} text-5xl mb-10`}>Meet the Team!</h1>
+        <h1 className={styles.teamHeading}>Meet the Team!</h1>
         
         {/* DIRECTORS - BACKGROUND */}
         <section id="directors"
@@ -24,13 +24,7 @@ export const Team = () => {
             
             {/* TITLE */}
             <div>
-              <Image
-                src="/images/teams_graphics/directors_title.svg"    
-                alt="Directors"
-                width={350}
-                height={250}
-                className=""
-            />
+                <h2 className={styles.teamTitle}>Directors</h2>
             </div>
 
             <div className={`${styles.memberGrid}`}>
