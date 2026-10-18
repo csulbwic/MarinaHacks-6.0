@@ -6,27 +6,27 @@ type Pillar = { title: string; description: string};
 const DATA: Pillar[] = [
   { 
     title: "Hacker's Favorite", 
-    description: "description"
+    description: "Most memorable and favorite project!"
   },
   {
     title: "Best Social Good",
     description:
-      "description"
+      "Focuses the best on addressing social issues such as climate change, renewable energy, waste reduction, and sustainable practices!"
   },
   {
     title: "Best Entertainment",
     description:
-      "description"
+      "Best entertainment product (music, gaming, art, food, culture, outdoor activities, physical activities, fashion, and beauty)!"
   },
   {
     title: "Best UI/UX",
     description:
-      "description"
+      "Best user interface and user experience design!"
   },
   {
     title: "Best Technical",
     description:
-      "description"
+      "Best project for the most advanced, challenging, and difficulty in implementation!"
   }
 ];
 
@@ -108,7 +108,7 @@ export const Pillars = () => {
                   px-8 py-8
                 "
               >
-                <p className="text-left text-[25px] leading-7 font-preahvihear">
+                <p className="text-left text-[25px] leading-7 font-preahvihear text-black">
                   {p.description}
                 </p>
               </div>
