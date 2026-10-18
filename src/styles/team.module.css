@@ -8,6 +8,38 @@
   text-align: center;
 }
 
+/* ----- Section backgrounds -----
+   The team area is split in two so each part can have its own background.
+   Together the two parts keep the same spacing as the original single container.
+   (.teamContainer.x so these still win over the phone rules further down.) */
+
+/* "Meet the Team!" + Directors */
+.teamContainer.introPart {
+  padding-bottom: 0;
+  display: flow-root; /* keeps the Directors' bottom margin inside this background */
+}
+
+.meetTheTeamBg {
+  /* the image's top row is a paler color that shows as a thin line, so the
+     image is nudged up to hide it; the color fills the sliver left at the bottom */
+  background: #bbd8f8 url("/images/TeamtoSponsorBGAssets/MeettheTeamBG.png") center -10px / cover no-repeat;
+}
+
+/* Design, Website, Sponsorship and WiC Officers */
+.teamContainer.restPart {
+  padding-top: 0;
+  display: flow-root;
+}
+
+/* Wrapper around the rest of the team AND the Sponsors section (see pages/index.tsx).
+   Stretched to fill the whole height so all of its waves stay visible. */
+.teamToSponsorBg {
+  background:
+    /* fade the last stretch into the FAQ background's top color so they blend */
+    linear-gradient(to bottom, rgba(162, 207, 249, 0) calc(100% - 160px), #a2cff9 100%),
+    url("/images/TeamtoSponsorBGAssets/teamtosponsorBG.png") center top / 100% 100% no-repeat;
+}
+
 .teamHeading {
   background: linear-gradient(to bottom, #FFA2EB 3%, #FCF9FB 70%);
   -webkit-background-clip: text;

@@ -2,12 +2,15 @@
   position: relative;
   overflow: hidden;
   padding: 70px 20px 88px;
-  background:
-    radial-gradient(ellipse at 80% 20%, rgba(218, 237, 255, 0.5) 0 18%, transparent 18.2%),
-    linear-gradient(180deg, #afd4f7 0%, #a5d0f6 72%, #94c4ef 100%);
+  /* no background of its own: the shared teamtosponsorBG behind Team + Sponsors
+     shows through (set in team.module.css, applied in pages/index.tsx) */
+  background: transparent;
 }
 
+/* The soft "hump" along the bottom went with the old blue gradient; with the
+   shared background it ends in a hard line against the FAQ, so it's turned off. */
 .section::after {
+  display: none;
   position: absolute;
   right: -8%;
   bottom: -80px;

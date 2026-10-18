@@ -11,9 +11,10 @@ GROUP 4: Design Committee
 GROUP 5: Sponsorship Committee
 */
 
-export const Team = () => {
+// "Meet the Team!" heading + Directors, on the MeettheTeamBG background
+export const MeetTheTeam = () => {
     return (
-      <div id ="teams" className={styles.teamContainer}>
+      <div id ="teams" className={`${styles.teamContainer} ${styles.introPart} ${styles.meetTheTeamBg}`}>
         <h1 className={styles.teamHeading}>Meet the Team!</h1>
         
         {/* DIRECTORS - BACKGROUND */}
@@ -42,7 +43,15 @@ export const Team = () => {
                 })}
             </div>
         </section>
-        
+      </div>
+    )
+  }
+
+// The rest of the committees. Its background (teamtosponsorBG) is shared with
+// the Sponsors section, so it's set on a wrapper around both in pages/index.tsx
+export const Team = () => {
+    return (
+      <div className={`${styles.teamContainer} ${styles.restPart}`}>
         {/* DESIGN - BACKGROUND */}
         <section id="design"
         className="relative overflow-visible flex flex-col items-center min-h-[500px] md:min-h-[500px] mb-32

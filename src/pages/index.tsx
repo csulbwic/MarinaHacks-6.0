@@ -2,7 +2,8 @@ import Landing from "@/components/Landing";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 
-import { Contact, Faq, Info, Prizes, Pillars, Sponsors, Team } from "@/views";
+import { Contact, Faq, Info, MeetTheTeam, Prizes, Pillars, Sponsors, Team } from "@/views";
+import teamStyles from "@/styles/team.module.css";
 
 export default function Home() {
   return (
@@ -16,8 +17,12 @@ export default function Home() {
         <Info />
         <Pillars />
         <Prizes />
-        <Team />
-        <Sponsors />
+        <MeetTheTeam />
+        {/* one continuous background behind the rest of the team and the sponsors */}
+        <div className={teamStyles.teamToSponsorBg}>
+          <Team />
+          <Sponsors />
+        </div>
         <Faq />
         <Contact />
         <Footer />
