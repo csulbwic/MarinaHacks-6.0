@@ -7,15 +7,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
 
 @font-face {
-  font-family: "Monomaniac One";
-  src: url("/fonts/MonomaniacOne-Regular.ttf") format("truetype");
+  font-family: "Black And White Picture";
+  src: url("/fonts/BlackAndWhitePicture-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-.font-monomaniac {
-  font-family: "Monomaniac One", sans-serif !important;
+@font-face {
+  font-family: "Preahvihear";
+  src: url("/fonts/Preahvihear-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-black-white {
+  font-family: "Black And White Picture", cursive !important;
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    180deg,
+    #B8ACFF 0%,
+    #82C7FF 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 :root {
