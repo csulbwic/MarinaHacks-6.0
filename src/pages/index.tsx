@@ -21,7 +21,7 @@ export default function Home() {
         {/* one continuous background behind the rest of the team and the sponsors */}
         <div className={teamStyles.teamToSponsorBg}>
           <Team />
-          <Sponsors />
+          {/* <Sponsors /> */}
         </div>
         <Faq />
         <Contact />

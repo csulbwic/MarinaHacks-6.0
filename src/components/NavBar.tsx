@@ -20,7 +20,7 @@ export const NavBar = () => {
     { label: "Pillars", href: "/#pillars" },
     { label: "Prizes", href: "/#prizes" },
     { label: "Team", href: "/#teams" },
-    { label: "Sponsors", href: "/#sponsors" },
+    /*{ label: "Sponsors", href: "/#sponsors" },*/
     { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/#contacts" },
   ];
