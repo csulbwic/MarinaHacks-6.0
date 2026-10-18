@@ -1,258 +1,308 @@
-.orbitWrap {
-  position: relative;
-  width: min(95vw, 980px);
-  aspect-ratio: 16 / 13;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+/* ===== MarinaHacks 6.0 Prizes section (static, no animation) ===== */
 
-.center {
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
-}
-
-
-.q1 {
-  position: absolute;
-  left: 1%;
-  top: 3%;
-}
-
-.q2 {
-  position: absolute;
-  right: 1%;
-  top: 3%;
-}
-
-.q3 {
-  position: absolute;
-  left: 21%;
-  bottom:6%;
-}
-
-.q4 {
-  position: absolute;
-  right: 21%;
-  bottom: 6%;
-}
-
-.slot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: clamp(180px, 24vw, 260px);
-}
-
-.circle {
+/* Whole section: wavy pink/lavender/blue background */
+.section {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 999px;
-  /* base roundness */
-  background:
-    radial-gradient(120% 120% at 30% 30%, rgba(255, 255, 255, 0.65) 0%, rgba(233, 248, 255, 0.45) 55%, rgba(216, 238, 248, 0.35) 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    0 18px 50px rgba(14, 55, 91, 0.18),
-    inset 0 18px 28px rgba(255, 255, 255, 0.75),
-    inset 0 -10px 22px rgba(186, 224, 242, 0.55);
-
-  /* subtle top V notch */
-  clip-path: polygon(50% 5%, 60% 6%, 70% 9%, 80% 14%, 88% 20%, 93% 28%, 96% 36%, 98% 46%,
-      98% 54%, 96% 64%, 93% 72%, 88% 80%, 80% 86%, 70% 91%, 60% 94%, 50% 95%,
-      40% 94%, 30% 91%, 20% 86%, 12% 80%, 7% 72%, 4% 64%, 2% 54%,
-      2% 46%, 4% 36%, 7% 28%, 12% 20%, 20% 14%, 30% 9%, 40% 6%);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background:
-    radial-gradient(120% 120% at 30% 30%,
-      rgba(255, 255, 255, 0.32) 0%,
-      rgba(233, 248, 255, 0.22) 55%,
-      rgba(216, 238, 248, 0.15) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow:
-    0 18px 50px rgba(14, 55, 91, 0.14),
-    inset 0 16px 26px rgba(255, 255, 255, 0.55),
-    inset 0 -10px 20px rgba(186, 224, 242, 0.40);
+  padding: 24px 16px 64px;
+  background-image: url("/images/PrizesAssets/PrizesBackground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Inside the circle, hold the prize image */
-.imgBox {
+.inner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+/* ----- Title row with corals ----- */
+.header {
   position: relative;
-  width: 88%;
-  aspect-ratio: 1 / 1;
-  transform: translateY(2%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: clamp(160px, 19vw, 240px);
+  /* pull the panel up so it overlaps the bottom of the corals */
+  margin-bottom: clamp(-40px, -3vw, -16px);
 }
 
-.imgFill {
+.title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  /* sit lower, between the coral clusters */
+  align-self: center;
+  margin-top: clamp(10px, 3vw, 40px);
+  width: clamp(160px, 26vw, 300px);
+}
+
+.titleImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  /* slightly richer, brighter colors, plus a soft shadow that follows the letter shapes */
+  filter: saturate(1.25) brightness(1.08) drop-shadow(0 5px 4px rgba(60, 40, 120, 0.42));
+}
+
+/* Each side holds both corals overlapped */
+.coralCluster {
   position: absolute;
-  inset: 0;
-  object-fit: contain;
+  /* sink the corals slightly behind the blue panel */
+  /* scales with the coral size, so bigger corals sink in a bit more */
+  bottom: clamp(-60px, -4vw, -24px);
+  z-index: 0;
+  width: clamp(185px, 30vw, 370px);
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  user-select: none;
 }
 
-.caption {
-  margin-top: 12px;
-  text-align: center;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
-  font-size: clamp(16px, 2.2vw, 20px);
-  color: #f8a9c7;
-  /* Marina pink */
+.clusterLeft {
+  left: clamp(-20px, 1vw, 20px);
 }
 
-.captionTop {
-  font-weight: 900;
+.clusterRight {
+  right: clamp(-20px, 1vw, 20px);
+  /* mirror image of the left cluster */
+  transform: scaleX(-1);
 }
 
-.captionSub {
-  font-weight: 700;
-  opacity: 0.9;
-  font-size: 0.92em;
+.coral {
+  position: absolute;
+  bottom: 0;
+  height: auto;
 }
 
-@keyframes floatY {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
+/* Left coral: the taller one */
+.coralA {
+  left: 0;
+  width: 78%;
+  z-index: 1;
+}
 
-  50% {
-    transform: translateY(-12px) rotate(1.4deg);
-  }
+/* Right coral: tucked in beside it */
+.coralB {
+  right: 0;
+  width: 70%;
+  z-index: 0;
+}
 
-  /* more lift + gentle tilt */
+/* ----- Gentle side-to-side sway, like coral in a current ----- */
+@keyframes coralSway {
+  0%,
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
   }
 }
 
-.float {
-  animation: floatY 5.5s ease-in-out infinite;
+.coral {
+  /* pivot from the base so the rock stays put and the branches move */
+  transform-origin: 50% 100%;
+  animation: coralSway 4.5s ease-in-out infinite;
 }
 
-.d1 {
-  animation-delay: 0s;
+/* slightly different timing for each coral so they don't move in lockstep */
+.coralB {
+  animation-duration: 5.5s;
+  animation-delay: -1.8s;
 }
 
-.d2 {
-  animation-delay: .5s;
+.clusterRight .coralA {
+  animation-delay: -2.6s;
 }
 
-.d3 {
-  animation-delay: 1.0s;
+.clusterRight .coralB {
+  animation-delay: -0.9s;
 }
 
-.d4 {
-  animation-delay: 2.0s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .float,
-  .d1,
-  .d2,
-  .d3,
-  .d4 {
-    animation: none !important;
+/* ----- Prize slots bob up and down, alternating ----- */
+@keyframes slotBob {
+  0%,
+  100% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(6px);
   }
 }
 
-@media (max-width: 640px) {
-  .orbitWrap {
-    width: min(96vw, 560px);
-  }
-
-  .q1,
-  .q2 {
-    top: 6%;
-  }
-
-  .q3,
-  .q4 {
-    bottom: 5%;
-  }
-}
-/* make each bubble stack above decor */
-.slot {
-  position: relative;          
-  z-index: 2;                  
+/* holds Top coral, the prize image and Bottom coral so they move as one */
+.bob {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(160px, 22vw, 220px);
-}
-/* === Mobile stacking for prizes above logo === */
-@media (max-width: 640px) {
-  .orbitWrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    aspect-ratio: auto;
-    gap: 12px;
-    padding: 8px 0 16px 0;
-  }
-  /* Place the logo after the prizes */
-  .center {
-    position: static;
-    transform: none;
-    left: auto;
-    top: auto;
-    order: 2;
-    width: 160px !important;
-    height: auto;
-    opacity: 0.15;     /* very faint */
-    z-index: 1;        /* stays behind the stacked prizes */
-    pointer-events: none;
-  }
-  
-  /* Stack each prize block one after another */
-  .q1, .q2, .q3, .q4 {
-    position: static;
-    inset: auto;
-    order: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  /* Make the prize bubble/content fit nicely on mobile */
-  .slot {
-    width: min(92vw, 420px);
-  }
-  .slot {
-    width: min(86vw, 340px);
-    margin: 4px 0;
-  }
-
-  /* Bubble/image container */
-  .circle {
-    /* smaller bubble diameter on mobile */
-    width: clamp(120px, 42vw, 180px);
-    height: auto; /* keep aspect */
-  }
-
-  /* Inner image box and image */
-  .imgBox {
-    width: 88%;
-  }
-  .imgFill {
-    /* keep default object-fit from your file; just scale slightly down */
-    transform: scale(0.95);
-  }
-
-  /* Text sizes */
-  .captionTop {
-    font-size: clamp(14px, 3.6vw, 16px);
-    line-height: 1.15;
-  }
-  .captionSub {
-    font-size: clamp(12px, 3.2vw, 14px);
-    line-height: 1.2;
-  }
-
+  width: 100%;
+  animation: slotBob 3.6s ease-in-out infinite;
 }
 
+/* every other prize starts half a cycle later: one goes up while the next goes down */
+.slot:nth-child(even) .bob {
+  animation-delay: -1.8s;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .coral,
+  .bob {
+    animation: none;
+  }
+}
+
+/* ----- Blue panel ----- */
+.panel {
+  position: relative;
+  z-index: 1;
+  background: #698fe2;
+  border: 4px solid #5776ca;
+  border-radius: 18px;
+  /* white border: solid next to the panel, fading out toward its outer edge */
+  box-shadow:
+    0 0 0 3px #e2e9fc,
+    0 0 6px 5px rgba(226, 233, 252, 0.7),
+    0 0 16px 10px rgba(226, 233, 252, 0.45),
+    0 0 36px 18px rgba(226, 233, 252, 0.3),
+    0 0 60px 26px rgba(240, 244, 255, 0.18);
+  padding: clamp(20px, 3vw, 36px) clamp(12px, 2.5vw, 32px);
+  margin: 8px;
+}
+
+/* Four prizes in one row */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 28px);
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Top Coral and Bottom Coral pieces */
+.rock {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  /* shadow that follows the rock's shape, so it pops off the blue panel */
+  filter: drop-shadow(0 10px 6px rgba(25, 30, 90, 0.6));
+}
+
+/* The rock in "Bottom coral.png" is drawn about 5% left of the image's
+   center (the top one is centered), so nudge it right to line them up */
+.rockBottom {
+  transform: translateX(5%);
+}
+
+/* Space between the two rock pieces where the prize image goes */
+.prizeImage {
+  position: relative;
+  width: 70%;
+  max-width: 160px;
+  aspect-ratio: 4 / 3;
+  /* tuck in between the rocks, like the mockup */
+  margin: -24% 0;
+  z-index: 1;
+}
+
+/* lines up one or more prize images in the gap */
+.prizeImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+}
+
+/* a category with two prizes gets a wider gap area so both stay a good size */
+.prizeImageMulti {
+  width: 92%;
+  max-width: 210px;
+  /* wider but the same height as a single prize, so every slot lines up */
+  aspect-ratio: 7 / 4;
+}
+
+.prizeImgBox {
+  position: relative;
+  flex: 1 1 0;
+  height: 100%;
+}
+
+.prizeImg {
+  object-fit: contain;
+  /* soft shadow so the prize stands out from the rocks */
+  filter: drop-shadow(0 6px 5px rgba(25, 30, 90, 0.45));
+}
+
+/* ----- Two prizes in one slot: overlap them diagonally -----
+   1st prize (earbuds) sits up and to the left, 2nd (keyboard) down and to the
+   right, with the 2nd's top-left corner layered over the 1st's bottom-right. */
+.prizeImageMulti {
+  gap: 0;
+  /* shrink the pair a little and nudge it left/up so it's centered between the
+     rocks without touching their icicles (doesn't change the slot's layout) */
+  scale: 0.82;
+  translate: -8% -5%;
+}
+
+.prizeImageMulti .prizeImgBox {
+  /* each image takes up part of the height, so they can be staggered */
+  height: 64%;
+}
+
+.prizeImageMulti .prizeImgBox:nth-child(1) {
+  align-self: flex-start;
+  z-index: 1;
+}
+
+.prizeImageMulti .prizeImgBox:nth-child(2) {
+  align-self: flex-end;
+  /* slide left so the keyboard's top-left corner sits over the earbuds' bottom-right */
+  margin-left: -24%;
+  z-index: 2;
+}
+
+/* pin each picture into the corner that touches the other one */
+.prizeImageMulti .prizeImgBox:nth-child(1) .prizeImg {
+  object-position: right bottom;
+}
+
+.prizeImageMulti .prizeImgBox:nth-child(2) .prizeImg {
+  object-position: left top;
+}
+
+.name {
+  margin: 10px 0 0;
+  text-align: center;
+  font-family: var(--font-prize-nunito), "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.2;
+  color: #2f3c8f;
+}
+
+/* the prize itself, under the category name */
+.item {
+  margin: 4px 0 0;
+  text-align: center;
+  font-family: var(--font-prize-nunito), "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, 1.3vw, 15px);
+  line-height: 1.25;
+  color: #f3f6ff;
+}
+
+/* ----- Tablet and phone layouts -----
+   Not built yet: these are being handled separately.
+   Add @media (max-width: ...) rules here for smaller screens. */
