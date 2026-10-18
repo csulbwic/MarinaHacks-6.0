@@ -136,7 +136,7 @@ export const Info = () => {
   "
 >
   <Image
-    src="/images/schedule6.0"
+    src="/images/MarinaHacks6.0Schedule.png"
     alt="Event Schedule"
     width={900}
     height={600}
