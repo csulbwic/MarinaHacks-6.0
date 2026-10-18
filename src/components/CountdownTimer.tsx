@@ -94,7 +94,7 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     // Styling repeats between boxes, thus using flexbox and grid for layout
 
   <div className="flex flex-col items-center gap-6">
-    <a
+    {/*<a
             href="APPLICATION_LINK"
             target="_blank"
             rel="noopener noreferrer"
@@ -115,9 +115,9 @@ export const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
               <span>Apply Now</span>
               <span aria-hidden="true">→</span>
             </span>
-          </a>
+          </a>*/}
 
-    <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-4 md:gap-10 lg:gap-16">
+    <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-4 md:gap-10 lg:gap-16 text-black">
       {/* Days */}
       <div className="flex justify-center p-1">
         <div

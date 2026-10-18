@@ -17,9 +17,10 @@ export const NavBar = () => {
   const navButtons = [
     { label: "Home", href: "/#home" },
     { label: "About", href: "/#about" },
-    // { label: "Pillars", href: "/#pillars" },
-    // { label: "Prizes", href: "/#prizes" },
+    { label: "Pillars", href: "/#pillars" },
+    { label: "Prizes", href: "/#prizes" },
     { label: "Team", href: "/#teams" },
+    { label: "Sponsors", href: "/#sponsors" },
     { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/#contacts" },
   ];
