@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
 
 .teamContainer {
   padding-left: 10%;
@@ -9,13 +9,34 @@
 }
 
 .teamHeading {
-  color: #FBACCC;
-  font-family: 'Nunito', sans-serif;
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to bottom, #FFA2EB 3%, #FCF9FB 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'Black And White Picture', sans-serif;
+  filter: drop-shadow(0px 4px 1px rgba(96, 7, 119, 0.25));
   text-align: center;
-  font-weight: 800;
+  font-weight: 100;
+  font-size: 7.5rem;
+  line-height: 1;
+  margin-bottom: 0.9rem;
 }
 
+
+.teamTitle {
+  background: linear-gradient(to bottom, #FCF9FB 10%, #FFA2EB 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: 'Black And White Picture', sans-serif;
+  filter: drop-shadow(0px 4px 1px rgba(96, 7, 119, 0.25));
+  text-align: center;
+  font-weight: 100;
+  font-size: 7rem;
+  line-height: 1;
+}
 
 .teamSubHeading {
   color: #FAFEF7;
@@ -38,14 +59,30 @@
   margin-bottom: 10px;
 }
 
+.profileFrame {
+  position: relative;
+  width: 19vw;
+  max-width: 340px;
+  aspect-ratio: 1692 / 1530;
+}
+
 .profilePic {
-  width: 9.5vw;
-  height: 9.5vw;
+  position: absolute;
+  top: 49.5%;
+  left: 48.7%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid #bfe4fb;
-  max-width: 200px;
-  max-height: 200px;
+}
+
+.profileBorder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .profileName {
@@ -135,11 +172,9 @@
     padding: 6px 20px;
   }
 
-  .profilePic {
-    width: 20vw;
-    height: 20vw;
-    max-width: 150px;
-    max-height: 150px;
+  .profileFrame {
+    width: 36vw;
+    max-width: 260px;
   }
 
   .profileName {
@@ -166,11 +201,9 @@
     padding: 5px 15px;
   }
 
-  .profilePic {
+  .profileFrame {
     width: 40vw;
-    height: 40vw;
-    max-width: 120px;
-    max-height: 120px;
+    max-width: 170px;
   }
 
   .profileName {

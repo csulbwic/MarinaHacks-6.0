@@ -12,7 +12,10 @@ export const Profile = ({ name, role, img, committeeType }: ProfileProps) => {
 
   return (
     <div className={styles.profileContainer}>
-      <img src={img} alt={name} className={styles.profilePic} />
+      <div className={styles.profileFrame}>
+        <img src={img} alt={name} className={styles.profilePic} />
+        <img src="/images/teams_graphics/team-border.png" alt="" className={styles.profileBorder} />
+      </div>
       <div className={styles.profileName}>{name}</div>
       <div className={roleClassName}>{role}</div>
     </div>
