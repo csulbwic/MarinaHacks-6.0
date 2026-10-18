@@ -69,10 +69,10 @@ export const NavBar = () => {
           <div className="relative h-full">
             <div
               aria-hidden
-              className="absolute inset-0 translate-x-[6px] translate-y-[8px] rounded-full bg-white shadow-md"
+              className="absolute inset-0 rounded-full"
             />
-            <nav className="relative z-10 font-bold shadow-md bg-gradient-to-r from-navtransition1 via-navtransition3 to-navtransition1 rounded-full p-2 justify-center items-center flex h-full">
-            <ul className="flex items-center justify-between gap-6 w-full h-full">
+            <nav className="relative z-10 font-bold bg-white/60 backdrop-blur-md border border-white/70 shadow-[0_10px_20px_rgba(90,60,140,0.25)] rounded-full p-2 justify-center items-center flex h-full">
+            <ul className="flex items-center justify-between gap-3 w-full h-full">
               {navButtons.map((button, index) => (
                 <li
                   key={index}

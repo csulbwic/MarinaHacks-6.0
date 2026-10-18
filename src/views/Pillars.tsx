@@ -5,7 +5,7 @@ type Pillar = { title: string; description: string};
 
 const DATA: Pillar[] = [
   { 
-    title: "Hacker's Favorite", 
+    title: "Best Overall", 
     description: "Most memorable and favorite project!"
   },
   {
@@ -17,11 +17,6 @@ const DATA: Pillar[] = [
     title: "Best Entertainment",
     description:
       "Best entertainment product (music, gaming, art, food, culture, outdoor activities, physical activities, fashion, and beauty)!"
-  },
-  {
-    title: "Best UI/UX",
-    description:
-      "Best user interface and user experience design!"
   },
   {
     title: "Best Technical",

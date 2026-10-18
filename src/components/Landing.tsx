@@ -59,7 +59,7 @@ export default function Landing() {
         </div>
 
         {/* Timer slightly above logo for overlap, but still low overall */}
-        <div className="z-[3] flex flex-col items-center gap-6">
+        <div className="z-[3] flex flex-col items-center gap-6 translate-y-6 md:translate-y-10">
           
 
           <CountdownTimer targetDate="2026-10-24T10:00:00" />
