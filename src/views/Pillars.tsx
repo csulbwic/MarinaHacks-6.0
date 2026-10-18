@@ -1,67 +1,103 @@
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 
-type Pillar = { title: string; description: string; color: string};
+type Pillar = { title: string; description: string};
 
 const DATA: Pillar[] = [
-  { title: "Best Overall", description: "Most memorable and favorite project!", color: "#df8ed1ff"},
+  { 
+    title: "Hacker's Favorite", 
+    description: "description"
+  },
   {
     title: "Best Social Good",
     description:
-      "Focuses the best on addressing social issues such as climate change, renewable energy, waste reduction, and sustainable practices!", color: "#a6a4e2ff"
+      "description"
   },
   {
     title: "Best Entertainment",
     description:
-      "Best entertainment product (music, gaming, art, food, culture, outdoor activities, physical activities, fashion, and beauty)!", color: "#eb89adff"
+      "description"
   },
- 
+  {
+    title: "Best UI/UX",
+    description:
+      "description"
+  },
   {
     title: "Best Technical",
     description:
-      "Best project for the most advanced, challenging, and difficulty in implementation!", color: "#fd85b5ff "
-  },
+      "description"
+  }
 ];
 
 // exact ribbon colors (in order)
-const HEADER = ["#F7D3F1", "#DAD9F6", "#EFC0D1", "#FBACCC"];
+const HEADER = ["#9B8AFF", "#8496FE", "#5875CD"];
+const TEXT = ["#FFFFFF", "#636DB1", "#5A649C"]
 
 export const Pillars = () => {
+  const [open, setOpen] = useState<boolean[]>(() => DATA.map(() => false));
+
+  const toggle = (index: number) => {
+    setOpen((prev) => prev.map((isOpen, i) => (i === index ? !isOpen : isOpen)));
+  };
+
   return (
     <section
       id="pillars"
-      className="bg-[#DFF9FF] pt-28 md:pt-36 pb-24 scroll-mt-28 md:scroll-mt-36"
+      className="relative bg-[url('/images/pillars/background6.0.png')] bg-no-repeat bg-cover bg-center pt-10 pb-24 scroll-mt-28 md:scroll-mt-36"
     >
-      {/* Section title */}
+      {/* Content wrapper */}
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-6xl text-center font-extrabold text-[#FBACCC] mb-12 mt-2 font-nunito [text-shadow:0px_4px_4px_rgba(0,0,0,0.25)]">
-          Pillars
-        </h2>
+        {/* Title and fish triplet */}
+        <div className="relative mx-auto mb-20 w-fit">
+          <Image 
+          src="/images/pillars/title6.0.png"
+          alt="Title"
+          width={250}
+          height={250}
+          />
 
-        {/* Stacked list */}
-        <div className="flex flex-col items-center space-y-12">
+          {/* Fish triplet */}
+          <Image
+          src="/images/pillars/fish_triplet6.0.png"
+          alt=""
+          width={180}
+          height={120}
+          className="absolute top-[15%] -right-[29%] w-[170px] h-auto z-[1] pointer-events-none select-none"
+          />
+        </div>
+
+        {/* Pillars list */}
+        <div className="relative z-10 flex flex-col items-center space-y-12">
           {DATA.map((p, i) => (
             <div key={p.title} className="w-full flex flex-col items-center">
               {/* Ribbon (on top) */}
-              <div
+              <button
+                type="button"
+                aria-expanded={open[i]}
+                onClick={() => toggle(i)}
                 className="
                   relative z-10
                   w-[92%] md:w-[88%] lg:w-[84%]
+                  cursor-pointer border-0 p-0 font-[inherit]
                   rounded-2xl
                   shadow-[0_4px_4px_rgba(0,0,0,0.25)]
                   ring-1 ring-black/5
-                  text-center
+                  text-left
                 "
-                style={{ background: HEADER[i % HEADER.length] }}
+                style={{ background: HEADER[i % HEADER.length], 
+                color: TEXT[i % TEXT.length]}}
               >
-                <div className="py-5">
+                <div className="py-2 pl-6 opacity-80">
                   {/* if you want white uppercase like the prototype, swap the color & add uppercase */}
-                  <h3 className="text-white uppercase tracking-[0.08em] text-[18px] sm:text-[20px] md:text-[22px] font-extrabold">
+                  <h3 className="tracking-[0.08em] text-[25px] sm:text-[30px] md:text-[40px] font-preahvihear">
                     {p.title}
                   </h3>
                 </div>
-              </div>
+              </button>
 
               {/* Card under the ribbon (slightly tucked underneath) */}
+              {open[i] && (
               <div
                 className="
                   relative z-0
@@ -72,13 +108,31 @@ export const Pillars = () => {
                   px-8 py-8
                 "
               >
-                <p className="text-center font-bold text-[17px] leading-7" style={{color:p.color}}>
+                <p className="text-left text-[25px] leading-7 font-preahvihear">
                   {p.description}
                 </p>
               </div>
+              )}
             </div>
           ))}
         </div>
+
+        {/* Fish triplet and pufferfish */}
+        <Image
+        src="/images/pillars/fish_triplet6.0.png"
+        alt=""
+        width={180}
+        height={120}
+        className="absolute -bottom-[2%] left-[2%] w-[170px] h-auto md:w-[170px] z-[1] pointer-events-none select-none"
+        />
+        
+        <Image
+        src="/images/pillars/pufferfish6.0.png"
+        alt=""
+        width={180}
+        height={120}
+        className="absolute bottom-[2%] right-[1%] w-[200px] h-auto md:w-[300px] z-[1] pointer-events-none select-none"
+        />
       </div>
     </section>
   );
