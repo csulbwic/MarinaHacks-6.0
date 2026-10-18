@@ -1,140 +1,126 @@
 import Image from "next/image";
+import { Nunito } from "next/font/google";
 import { Prize } from "@/Data/prize";
-//import { PrizeBubbleComponent } from "../components/PrizeBubbleComponent";
-import layout from "@/styles/prizesLayout.module.css";
+import styles from "@/styles/prizesLayout.module.css";
+// Imported directly so Next.js knows its real pixel size
+import prizesHeader from "../../public/images/PrizesAssets/PrizesHeader.png";
 
-function splitName(name: string) {
-  const parts = name.split("|");
-  if (parts.length >= 2) {
-    return {
-      category: parts[0].trim(),     // e.g., "BEST UI/UX"
-      item: parts.slice(1).join("|").trim(), // the rest after the first |
-    };
-  }
-  return { category: name, item: "" };
+// Nunito (bold for categories, semi bold for prize names), loaded just for this section
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+  variable: "--font-prize-nunito",
+});
+
+// PrizeImg can be one path or a list of paths; always work with a list
+function toList(img: string | string[]) {
+  return (Array.isArray(img) ? img : [img]).filter(Boolean);
 }
 
-// Reusable slot that shows the image in the circle + caption below
-function PrizeSlot({ name, img, className }: { name: string; img: string; className?: string }) {
-  const { category, item } = splitName(name);
+// All art for this section lives in public/images/PrizesAssets
+const ASSETS = "/images/PrizesAssets";
 
+// Left coral and Right coral overlapped, so each side of the title looks abundant
+function CoralCluster({ side }: { side: "left" | "right" }) {
   return (
-    <div className={`${layout.slot} ${className ?? ""}`}>
-      <div className={layout.circle}>
-        <div className={layout.imgBox}>
-          <Image
-            src={img}
-            alt={name}
-            fill
-            className={layout.imgFill}
-            sizes="(max-width: 640px) 180px, (max-width: 1024px) 220px, 260px"
-            priority
-          />
-        </div>
-      </div>
-
-      <div className={layout.caption}>
-        {item ? (
-          <>
-            <div className={layout.captionTop}>{category}</div>
-            <div className={layout.captionSub}>{item}</div>
-          </>
-        ) : (
-          <div className={layout.captionTop}>{category}</div>
-        )}
-      </div>
+    <div
+      className={`${styles.coralCluster} ${side === "left" ? styles.clusterLeft : styles.clusterRight}`}
+      aria-hidden
+    >
+      <Image
+        src={`${ASSETS}/Left coral.png`}
+        alt=""
+        width={310}
+        height={330}
+        className={`${styles.coral} ${styles.coralA}`}
+      />
+      <Image
+        src={`${ASSETS}/Right coral.png`}
+        alt=""
+        width={270}
+        height={255}
+        className={`${styles.coral} ${styles.coralB}`}
+      />
     </div>
   );
 }
+
 export const Prizes = () => {
-  // Use the first 4 entries for the four slots
-  const items = Prize.slice(0, 4);
+  const prizes = Prize.slice(0, 4);
 
   return (
-    <section id="prizes" className="relative pt-6 pb-0 flex flex-col items-center">
-      <h1 className="text-6xl leading-none tracking-tight text-center font-extrabold text-[#FBACCC] mb-0 font-nunito [text-shadow:0px_4px_3px_rgba(0,0,0,0.25)]">
-        Prizes
-      </h1>{/* Center swaying logo */}
-
-      <div className={`${layout.orbitWrap} -mt-8 sm:-mt-10 lg:-mt-12 mb-0`}>
-        <div className={`${layout.center} w-[200px] sm:w-[330px] md:w-[300px] aspect-square`}>
-          <Image
-            src="/images/logos_5.0/main_logo.svg"
-            alt="MarinaHacks 5.0 logo"
-            fill
-            className="sway-more-slow object-contain"
-            priority
-          />
+    <section id="prizes" className={`${styles.section} ${nunito.variable}`}>
+      <div className={styles.inner}>
+        {/* Title with a coral on each side */}
+        <div className={styles.header}>
+          <CoralCluster side="left" />
+          <h2 className={styles.title}>
+            <Image
+              src={prizesHeader}
+              alt="Prizes"
+              className={styles.titleImg}
+              // serve the original PNG without recompressing it
+              unoptimized
+              priority
+              // never stretch it wider than its real size
+              style={{ maxWidth: prizesHeader.width }}
+            />
+          </h2>
+          <CoralCluster side="right" />
         </div>
 
-        <Image
-          src="/images/faqStar.png"
-          alt="Shell"
-          width={180}
-          height={180}
-          className="
-          absolute left-[1%] top-[40%]      /* was right-[16%] top-[20%] */
-          w-[150px] md:w-[170px]
-          rotate-[6deg] opacity-90
-          z-0 select-none pointer-events-none
-          max-sm:hidden
-          sway-more-slow sway-origin-top [animation-delay:350ms]
-        "
-          aria-hidden
-          priority
-        />
+        {/* Blue panel with the four prize slots */}
+        <div className={styles.panel}>
+          <ul className={styles.grid}>
+            {prizes.map((prize, i) => (
+              <li key={i} className={styles.slot}>
+                {/* Top coral, prize and bottom coral bob up and down together */}
+                <div className={styles.bob}>
+                  <Image
+                    src={`${ASSETS}/Top coral.png`}
+                    alt=""
+                    aria-hidden
+                    width={255}
+                    height={197}
+                    className={styles.rock}
+                  />
 
-        <Image
-          src="/images/faqStar.png"
-          alt="Starfish"
-          width={100}
-          height={100}
-          className="
-          absolute right-[2%] bottom-[30%]   /* was right-[4%] bottom-[9%] */
-          w-[120px] md:w-[140px]
-          rotate-[8deg] opacity-90
-          z-0 select-none pointer-events-none
-          max-sm:hidden
-          sway-more-rev sway-origin-bottom [animation-delay:650ms]
-        "
-          aria-hidden
-          priority
-        />
+                  {/* The prize (or prizes) sit between the rocks and float with them */}
+                  <div
+                    className={`${styles.prizeImage} ${
+                      toList(prize.PrizeImg).length > 1 ? styles.prizeImageMulti : ""
+                    }`}
+                    style={prize.imgOffsetY ? { transform: `translateY(${prize.imgOffsetY})` } : undefined}
+                  >
+                    {toList(prize.PrizeImg).map((src, j, all) => (
+                      <div key={src} className={styles.prizeImgBox}>
+                        <Image
+                          src={src}
+                          alt={all.length > 1 ? `${prize.name} prize ${j + 1}` : `${prize.name} prize`}
+                          fill
+                          sizes="200px"
+                          className={styles.prizeImg}
+                        />
+                      </div>
+                    ))}
+                  </div>
 
-        {/* Top-left */}
-        <div className={layout.q1}>
-          <PrizeSlot
-            name={items[0]?.name ?? "Prize Name"}
-            img={items[0]?.PrizeImg ?? "/images/prizeImg/Camera.png"}
-            className={`${layout.float} ${layout.d1}`}   // <-- sway
-          />
-        </div>
+                  <Image
+                    src={`${ASSETS}/Bottom coral.png`}
+                    alt=""
+                    aria-hidden
+                    width={272}
+                    height={170}
+                    className={`${styles.rock} ${styles.rockBottom}`}
+                  />
+                </div>
 
-        {/* Top-right */}
-        <div className={layout.q2}>
-          <PrizeSlot
-            name={items[1]?.name ?? "Prize Name"}
-            img={items[1]?.PrizeImg ?? "/images/prizeImg/Headphone.png"}
-            className={`${layout.float} ${layout.d2}`}
-          />
-        </div>
-
-        {/* Bottom-left */}
-        <div className={layout.q3}>
-          <PrizeSlot
-            name={items[2]?.name ?? "Prize Name"}
-            img={items[2]?.PrizeImg ?? "/images/prizeImg/Owala.png"}
-            className={`${layout.float} ${layout.d3}`}
-          />
-        </div>
-
-        {/* Bottom-right */}
-        <div className={layout.q4}>
-          <PrizeSlot
-            name={items[3]?.name ?? "Prize Name"}
-            img={items[3]?.PrizeImg ?? "/images/prizeImg/AmazonEchoDot.png"}
-            className={`${layout.float} ${layout.d4}`}
-          />
+                <p className={styles.name}>{prize.name}</p>
+                {prize.item && <p className={styles.item}>{prize.item}</p>}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
