@@ -25,7 +25,7 @@ export default function Landing() {
         height={400}
         className="
           absolute left-[4%] top-[10%]
-          w-[380px] md:w-[520px]
+          w-[240px] sm:w-[380px] md:w-[520px]
           h-auto max-w-none
           rotate-[-12deg]
         "
@@ -38,7 +38,7 @@ export default function Landing() {
         height={400}
         className="
           absolute right-[4%] bottom-[18%]
-          w-[380px] md:w-[520px]
+          w-[240px] sm:w-[380px] md:w-[520px]
           h-auto max-w-none
           rotate-[-8deg]
         "

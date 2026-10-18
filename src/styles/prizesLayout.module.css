@@ -303,6 +303,67 @@
   color: #f3f6ff;
 }
 
-/* ----- Tablet and phone layouts -----
-   Not built yet: these are being handled separately.
-   Add @media (max-width: ...) rules here for smaller screens. */
+/* ===== Tablet and phone layouts (desktop is unchanged) ===== */
+
+/* Small tablets and large phones: 2 x 2 grid */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 36px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .item {
+    font-size: 14px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .section {
+    padding: 16px 12px 48px;
+  }
+
+  /* smaller corals pushed to the edges so they don't crowd the title */
+  .header {
+    min-height: 140px;
+  }
+
+  .coralCluster {
+    width: 132px;
+    bottom: -18px;
+  }
+
+  .clusterLeft {
+    left: -14px;
+  }
+
+  .clusterRight {
+    right: -14px;
+  }
+
+  .title {
+    width: 160px;
+    margin-top: 8px;
+  }
+
+  .panel {
+    padding: 20px 10px 24px;
+  }
+
+  .grid {
+    column-gap: 8px;
+    row-gap: 28px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .item {
+    font-size: 12.5px;
+  }
+}

@@ -49,7 +49,7 @@ export const Pillars = () => {
       {/* Content wrapper */}
       <div className="mx-auto max-w-5xl px-6">
         {/* Title and fish triplet */}
-        <div className="relative mx-auto mb-20 w-fit">
+        <div className="relative mx-auto mb-12 sm:mb-20 w-fit">
           <Image 
           src="/images/pillars/title6.0.png"
           alt="Title"
@@ -63,7 +63,7 @@ export const Pillars = () => {
           alt=""
           width={180}
           height={120}
-          className="absolute top-[15%] -right-[29%] w-[170px] h-auto z-[1] pointer-events-none select-none"
+          className="absolute top-[15%] -right-[29%] w-[110px] sm:w-[170px] h-auto z-[1] pointer-events-none select-none"
           />
         </div>
 
@@ -88,9 +88,9 @@ export const Pillars = () => {
                 style={{ background: HEADER[i % HEADER.length], 
                 color: TEXT[i % TEXT.length]}}
               >
-                <div className="py-2 pl-6 opacity-80">
+                <div className="py-2 pl-4 pr-3 sm:pl-6 sm:pr-0 opacity-80">
                   {/* if you want white uppercase like the prototype, swap the color & add uppercase */}
-                  <h3 className="tracking-[0.08em] text-[25px] sm:text-[30px] md:text-[40px] font-preahvihear">
+                  <h3 className="tracking-[0.03em] sm:tracking-[0.08em] text-[20px] sm:text-[30px] md:text-[40px] font-preahvihear">
                     {p.title}
                   </h3>
                 </div>
@@ -105,10 +105,10 @@ export const Pillars = () => {
                   -mt-4              /* <-- pulls the white card up, under the ribbon */
                   rounded-2xl bg-white
                   shadow-lg ring-1 ring-black/5
-                  px-8 py-8
+                  px-5 py-6 sm:px-8 sm:py-8
                 "
               >
-                <p className="text-left text-[25px] leading-7 font-preahvihear text-black">
+                <p className="text-left text-[17px] leading-6 sm:text-[25px] sm:leading-7 font-preahvihear text-black">
                   {p.description}
                 </p>
               </div>

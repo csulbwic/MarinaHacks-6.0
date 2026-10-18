@@ -94,7 +94,7 @@ export const Info = () => {
       <h1 className="
         gradient-text
         font-black-white
-        text-[110px]
+        text-[44px] sm:text-[72px] md:text-[110px]
         font-normal
         leading-none
         text-center
