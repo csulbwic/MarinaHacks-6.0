@@ -17,9 +17,9 @@ export const NavBar = () => {
   const navButtons = [
     { label: "Home", href: "/#home" },
     { label: "About", href: "/#about" },
-    { label: "Pillars", href: "/#pillars" },
-    { label: "Prizes", href: "/#prizes" },
-    { label: "Teams", href: "/#teams" },
+    // { label: "Pillars", href: "/#pillars" },
+    // { label: "Prizes", href: "/#prizes" },
+    { label: "Team", href: "/#teams" },
     { label: "FAQ", href: "/#faq" },
     { label: "Contact", href: "/#contacts" },
   ];
@@ -52,8 +52,8 @@ export const NavBar = () => {
   return (
     <div className="w-full h-auto fixed top-0 z-10">
       {/* full size navbar */}
-      <div className="hidden md:flex w-full h-full justify-between items-center">
-        <Link href="/#home">
+      <div className="hidden md:flex w-[90%] h-full justify-between items-center mx-auto">
+        {/* <Link href="/#home">
           <Image
             src="/images/navlogo.png"
             alt="MarinaHacks 5.0 Logo"
@@ -61,11 +61,16 @@ export const NavBar = () => {
             height={navLogoSize}
             className="cursor-pointer"
           />
-        </Link>
+        </Link> */}
 
         {/* adjust height of navbar on this parent div. you can change it to see how it affects the size of the buttons, etc. to fine tune it if you want */}
-        <div className="flex-1 px-5 h-[60px]">
-          <nav className="font-bold shadow-md bg-gradient-to-r from-navtransition1 via-navtransition2 to-navtransition3 rounded-full p-2 justify-center items-center flex h-full">
+        <div className="flex-1 px-5 h-[60px] mt-2">
+          <div className="relative h-full">
+            <div
+              aria-hidden
+              className="absolute inset-0 translate-x-[6px] translate-y-[8px] rounded-full bg-white shadow-md"
+            />
+            <nav className="relative z-10 font-bold shadow-md bg-gradient-to-r from-navtransition1 via-navtransition3 to-navtransition1 rounded-full p-2 justify-center items-center flex h-full">
             <ul className="flex items-center justify-between gap-6 w-full h-full">
               {navButtons.map((button, index) => (
                 <li
@@ -73,15 +78,16 @@ export const NavBar = () => {
                   className="rounded-full flex-1 text-navtext h-full select-none shadow-md"
                 >
                   <Link
-                    className="text-sm md:text-md lg:text-xl bg-navbtn w-full rounded-full h-full flex justify-center items-center font-nunito [text-shadow:0px_3px_4px_rgba(0,0,0,0.25)] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-pink-400 hover:shadow-lg hover:text-white"
+                    className="text-sm md:text-lg lg:text-2xl bg-navbtn w-full rounded-full h-full flex justify-center items-center font-bagel [text-shadow:0px_3px_4px_rgba(0,0,0,0.25)] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-pink-300 hover:shadow-lg hover:text-white"
                     href={button.href}
                   >
-                    {button.label}
+                    <span className="inline-block -translate-y-[3px]">{button.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+            </nav>
+          </div>
         </div>
       </div>
 
@@ -92,19 +98,24 @@ export const NavBar = () => {
           style={{
             height: `${hamburgerHeight}px`,
             width: `${hamburgerWidth}px`,
-            borderRadius: showMenu ? "25px" : "100%",
+            borderRadius: showMenu ? "25px" : "0px",
+            backgroundImage: showMenu ? "none" : "url(/images/menu_starfish.png)",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
-          className="shadow-md relative ml-[10px] mt-[10px] px-5 bg-gradient-to-b from-navtransition1 via-navtransition2 to-navtransition3 transition-all duration-300 ease-in-out overflow-hidden flex flex-col"
+          className={`relative ml-[10px] mt-[10px] px-5 transition-all duration-[300ms] delay-[50ms] ease-in-out overflow-hidden flex flex-col ${showMenu ? "bg-[#FFE1ED] shadow-md" : "drop-shadow-md"}`}
         >
           <button
+            aria-label={showMenu ? "Close menu" : "Open menu"}
             style={{
               opacity: showMenu ? 0 : 1,
               pointerEvents: showMenu ? "none" : "auto",
             }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center w-[50px] h-[50px] z-10 transition-all duration-[150ms] delay-[0ms] ease-in-out"
+            className="absolute top-1/2 left-1/2 -translate-x-[calc(50%+1px)] -translate-y-[calc(50%+4px)] flex justify-center items-center w-[50px] h-[50px] z-10 transition-all duration-[300ms] delay-[50ms] ease-in-out"
             onClick={openHamburger}
           >
-            <GiHamburgerMenu size={30} color="#FBACCC" />
+            <GiHamburgerMenu size={30} color="#F9F8D2" />
           </button>
 
           <ul className="flex flex-col justify-around flex-1">
@@ -112,11 +123,11 @@ export const NavBar = () => {
               <li
                 key={index}
                 style={{ opacity: showMenu ? 1 : 0 }}
-                className="rounded-full transition-all duration-[200ms] ease-in-out delay-[50ms] font-bold text-navtext select-none flex-none shadow-md"
+                className="rounded-full transition-all duration-[300ms] ease-in-out delay-[50ms] font-bold text-navtext select-none flex-none"
               >
                 <Link
                   onClick={resetHamburger}
-                  className="rounded-full bg-navbtn w-full flex justify-center items-center text-lg font-nunito [text-shadow:0px_3px_4px_rgba(0,0,0,0.25)]"
+                  className="rounded-full bg-[#FFF1F8] w-full flex justify-center items-center text-lg font-bagel text-[#FDA0CA] shadow-[inset_0_2px_4px_rgba(214,150,180,0.45)]" 
                   href={button.href}
                 >
                   {button.label}
@@ -126,7 +137,7 @@ export const NavBar = () => {
           </ul>
         </div>
 
-        <div className="flex-none">
+        {/* <div className="flex-none">
           <Link href="/#home">
             <Image
               src="/images/navlogo.png"
@@ -136,7 +147,7 @@ export const NavBar = () => {
               className="cursor-pointer"
             />
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
