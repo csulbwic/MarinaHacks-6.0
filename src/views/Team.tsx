@@ -116,7 +116,7 @@ export const Team = () => {
             
             {/* TITLE */}
             <div>
-                <h2 className={styles.teamTitle}>Sponorship Committee</h2>
+                <h2 className={styles.teamTitle}>Sponsorship & Budgeting Committee</h2>
             </div>
 
             <div className={styles.memberGrid}>
