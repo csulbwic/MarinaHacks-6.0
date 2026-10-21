@@ -37,8 +37,8 @@ export const members = [
   { name: 'Joelle M.',     group: 3, role: 'Member',        committeeType: 'website',  img: '/Team_Photos/2026_MH/JoelleMoxley.jpeg' },
   { name: 'Melissa L.',    group: 3, role: 'Member',        committeeType: 'website',  img: '/Team_Photos/2026_MH/MelissaLazenby.jpeg' },
   { name: 'Joseph H.',     group: 3, role: 'Member',        committeeType: 'website',  img: '/Team_Photos/2026_MH/JosephHuynh.jpg' },
-  { name: 'Vivian V.',     group: 3, role: 'Member',        committeeType: 'website',  img: 'images/logos_5.0/main_logo6.0.svg' },
-  { name: 'Mitzly M.',     group: 3, role: 'Member',        committeeType: 'website',  img: 'images/logos_5.0/main_logo6.0.svg' },
+  { name: 'Vivian V.',     group: 3, role: 'Member',        committeeType: 'website',  img: '/Team_Photos/2026_MH/VivianVu.jpeg' },
+  { name: 'Mitzly M.',     group: 3, role: 'Member',        committeeType: 'website',  img: '/Team_Photos/2026_MH/MitzlyMaciel.jpeg' },
 
   // ===== DESIGN (Group 4) =====
   { name: 'Warissa H.',    group: 4, role: 'Design Lead',   committeeType: 'designer', img: '/Team_Photos/2026_MH/WarissaHossain.jpeg' },
@@ -46,10 +46,10 @@ export const members = [
   { name: 'Mishka M.',     group: 4, role: 'Member',        committeeType: 'designer', img: '/Team_Photos/2026_MH/MishkaKhalilM.jpeg' },
   { name: 'Lexi N.',       group: 4, role: 'Member',        committeeType: 'designer', img: '/Team_Photos/2026_MH/LexiNguyen.jpeg' },
   { name: 'Nhu L.',        group: 4, role: 'Member',        committeeType: 'designer', img: '/Team_Photos/2026_MH/NhuLu.jpeg' },
-  { name: 'Mitzly M.',     group: 4, role: 'Member',        committeeType: 'designer', img: 'images/logos_5.0/main_logo6.0.svg' },
+  { name: 'Mitzly M.',     group: 4, role: 'Member',        committeeType: 'designer', img: '/Team_Photos/2026_MH/MitzlyMaciel.jpeg' },
 
   // ===== SPONSORSHIP + Budgeting (Group 5) =====
-  { name: 'Christina P.',  group: 2, role: 'Sponsorship Lead', committeeType: 'officer',  img: '/Team_Photos/2026_MH/ChristinaPeralta.jpg' },
+  { name: 'Christina P.',  group: 5, role: 'Sponsorship Lead', committeeType: 'sponsorship',  img: '/Team_Photos/2026_MH/ChristinaPeralta.jpg' },
   { name: 'Rochelle S.',   group: 5, role: 'Budgeting Lead', committeeType: 'sponsorship', img: '/Team_Photos/2026_MH/RochelleSuarez.jpeg' },
-  { name: 'Isha M.',       group: 2, role: 'Budgeting Lead',     committeeType: 'officer',  img: '/Team_Photos/2026_MH/IshaMehta.png' },
+  { name: 'Isha M.',       group: 5, role: 'Budgeting Lead',     committeeType: 'sponsorship',  img: '/Team_Photos/2026_MH/IshaMehta.png' },
 ];
