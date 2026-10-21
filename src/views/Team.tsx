@@ -92,7 +92,7 @@ export const Team = () => {
             </div>
 
             <div className={styles.memberGrid}
-            style={ {maxWidth:"1000px"}}>
+            style={ {maxWidth:"1100px"}}>
                 {/* Map Members of group member only */}
                 {members.filter((member) => member.group === 3).map((item, index) => {
                 return (
@@ -116,7 +116,7 @@ export const Team = () => {
             
             {/* TITLE */}
             <div>
-                <h2 className={styles.teamTitle}>Sponorship Committee</h2>
+                <h2 className={styles.teamTitle}>Sponsorship & Budgeting Committee</h2>
             </div>
 
             <div className={styles.memberGrid}>
